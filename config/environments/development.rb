@@ -8,6 +8,9 @@ Breakaway::Application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
+  
+  #From Devise
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
@@ -18,6 +21,10 @@ Breakaway::Application.configure do
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
+  
+  # if having trouble deploying to heroku, only 
+  # mentioned for rails 3.2
+  # config.assets.initialize_on_precompile = false
 
   # Raise an error on page load if there are pending migrations
   config.active_record.migration_error = :page_load

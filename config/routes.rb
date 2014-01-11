@@ -1,5 +1,5 @@
 Breakaway::Application.routes.draw do
-  get '/' => "marketing#splash"
+  root to: "marketing#splash"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
