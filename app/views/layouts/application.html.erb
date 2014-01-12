@@ -7,11 +7,63 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="container">
-	
+	<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+	  <div class="container">
+	    <div class="navbar-header">
+	      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+		  <a class="navbar-brand">Breakaway</a>
+	    </div>
+	    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+	      <ul class="nav navbar-nav">
+	        <li>
+	         <a> My Dashboard</a>
+	        </li>
+	        <li>
+			<a>All Players</a>
+	        </li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+			  <% if user_signed_in?  %>
+	  	        <li>
+					<%= link_to "Sign out coach", destroy_coach_session_path, method: :delete if current_coach %>
+					<%= link_to "Sign out player", destroy_player_session_path, method: :delete if current_player %>
+	  	        </li>
+		 	  <% else %>
+		        <li>
+					<%= link_to 'Player', new_player_session_path %>
+		        </li>
+		        <li>
+		          <%= link_to 'Coach', new_coach_session_path %>
+		        </li>
+			<% end %>
+
+	      </ul>
+	    </nav>
+	  </div>
+	</header>
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
 
 <%= yield %>
+
+<footer class="footer container">
+  <small>
+    <a href="http://railstutorial.org/">breakaway</a>
+    by 54footy
+  </small>
+  <nav>
+    <ul>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Support</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+  </nav>
+</footer>
 
 </body>
 </html>

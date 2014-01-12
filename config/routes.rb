@@ -1,13 +1,9 @@
 Breakaway::Application.routes.draw do
   
-  devise_for :players, :controllers => {:registrations => "players/registrations",
-                                        :sessions => "players/sessions",
-                                        :passwords => "players/passwords"} 
+  devise_for :users
+  devise_for :players, :controllers => {:registrations => "players/registrations",:sessions => "players/sessions",:passwords => "players/passwords"} 
 
-  
-  devise_for :coaches, :controllers => {:registrations => "coaches/registrations",
-                                        :sessions => "coaches/sessions",
-                                        :passwords => "coaches/passwords"}
+  devise_for :coaches, :controllers => {:registrations => "coaches/registrations",:sessions => "coaches/sessions", :passwords => "coaches/passwords"}
   
   get '/' => "marketing#splash"
   root to: "marketing#splash"
