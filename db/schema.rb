@@ -11,9 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140118203600) do
+ActiveRecord::Schema.define(version: 20140118213739) do
 
   create_table "coaches", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "games", force: true do |t|
+    t.date     "scheduled_date"
+    t.string   "opponent"
+    t.text     "location"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

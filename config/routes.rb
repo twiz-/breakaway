@@ -1,5 +1,7 @@
 Breakaway::Application.routes.draw do
-  resources :listings
+  
+  
+  resources :games
 
   root to: "marketing#splash"
   
@@ -10,6 +12,11 @@ Breakaway::Application.routes.draw do
   devise_for :coaches, :controllers => {:registrations => "coaches/registrations",
                                         :sessions => "coaches/sessions", 
                                         :passwords => "coaches/passwords"}
+
+  get "profiles/show"                                          
+  get "dashboard/show"
+  
+  resources :listings
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  scheduled_date: 2014-01-18
+  opponent: MyString
+  location: MyText
+  user_id: 1
+
+two:
+  scheduled_date: 2014-01-18
+  opponent: MyString
+  location: MyText
+  user_id: 1
