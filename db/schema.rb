@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140112001003) do
+ActiveRecord::Schema.define(version: 20140118190650) do
 
   create_table "coaches", force: true do |t|
     t.datetime "created_at"
@@ -37,6 +37,13 @@ ActiveRecord::Schema.define(version: 20140112001003) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "club_team"
+    t.integer  "grad_year"
+    t.string   "formation"
+    t.string   "position"
+    t.string   "profile_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

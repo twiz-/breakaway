@@ -2,8 +2,26 @@
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  <div><%= f.label :type %><br />
-  <%= f.text_field :type %></div>
+  
+  <div><%= f.label :first_name %><br />
+  <%= f.text_field :first_name %></div>
+  <div><%= f.label :last_name %><br />
+  <%= f.text_field :last_name %></div>
+  <div><%= f.label :current_club %><br />
+  <%= f.text_field :club_team %></div>
+  <div><%= f.label :position %><br />
+  	<%= f.radio_button(:position, "Striker") %> Striker
+	<%= f.radio_button(:position, "Midfielder") %> Midefielder
+	<%= f.radio_button(:position, "Defender") %> Defender
+  </div>
+  
+  <div><%= f.label :profile_name %><br />
+  <%= f.text_field :profile_name %></div>
+  
+  <div><%= f.label :graduation_year %><br />
+  <%= f.select :grad_year, (Time.now.year..Time.now.year + 5) %></div>
+  <div><%= f.label :formation %><br />
+  <%= f.select(:formation,[["4-4-2"],["4-3-3"],["3-4-3"],["4-5-1"]]) %></div>
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>

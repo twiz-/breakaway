@@ -1,14 +1,13 @@
 Breakaway::Application.routes.draw do
-  
-  devise_for :users
-  devise_for :players, :controllers => {:registrations => "players/registrations",:sessions => "players/sessions",:passwords => "players/passwords"} 
-
-  devise_for :coaches, :controllers => {:registrations => "coaches/registrations",:sessions => "coaches/sessions", :passwords => "coaches/passwords"}
-  
-  get '/' => "marketing#splash"
   root to: "marketing#splash"
   
-  
+  devise_for :players, :controllers => {:registrations => "players/registrations",
+                                        :sessions => "players/sessions",
+                                        :passwords => "players/passwords"} 
+
+  devise_for :coaches, :controllers => {:registrations => "coaches/registrations",
+                                        :sessions => "coaches/sessions", 
+                                        :passwords => "coaches/passwords"}
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
