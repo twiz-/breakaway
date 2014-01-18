@@ -1,4 +1,6 @@
 Breakaway::Application.routes.draw do
+  resources :listings
+
   root to: "marketing#splash"
   
   devise_for :players, :controllers => {:registrations => "players/registrations",
