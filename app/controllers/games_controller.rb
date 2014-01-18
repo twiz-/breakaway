@@ -15,7 +15,7 @@ class GamesController < ApplicationController
 
   # GET /games/new
   def new
-    @game = current_player.new
+    @game = current_player.games.new
   end
 
   # GET /games/1/edit
@@ -25,7 +25,7 @@ class GamesController < ApplicationController
   # POST /games
   # POST /games.json
   def create
-    @game = current_player.game.new(params[:game])
+    @game = current_player.games.new(game_params)
 
     respond_to do |format|
       if @game.save
@@ -66,15 +66,15 @@ class GamesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_game
       @game = Game.find(params[:id])
-      rescue ActiveRecord::RecordNotFound
-        render file: 'public/404', status: :not_found
-      end
+    rescue ActiveRecord::RecordNotFound
+      render file: 'public/404', status: :not_found
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:scheduled_date, :opponent, :location, :user_id)
+      params.require(:game).permit(:scheduled_date, :scheduled_time, :opponent, :location, :player_id)
     end
+    
     def check_permission
         handle_no_access if current_player != @game.player
     end

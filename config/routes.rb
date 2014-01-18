@@ -1,7 +1,6 @@
 Breakaway::Application.routes.draw do
   
   
-  resources :games
 
   root to: "marketing#splash"
   
@@ -15,8 +14,12 @@ Breakaway::Application.routes.draw do
 
   get "profiles/show"                                          
   get "dashboard/show"
-  
+  get 'friendships/:friend_id' => 'user_friendships#new', :as => :new_friendship
+
+  get '/:id', to: "profiles#show", as: 'profile'
+  resources :games
   resources :listings
+  resources :user_friendships
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

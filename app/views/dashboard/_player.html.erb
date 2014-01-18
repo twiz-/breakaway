@@ -1,0 +1,8 @@
+<h1>Dashboard-</h1> What your profile looks like to coaches <%= link_to "Your Profile Path", profile_path(current_player) %>
+<br><br>
+<%= link_to "Post a new Highlight Video", new_listing_path, class: "btn btn-success" %>
+<%= link_to "Post a new Game Date", new_game_path, class: "btn btn-success" %>
+
+<%= render "game" %>
+<%= render "video" %>
+<br><br>

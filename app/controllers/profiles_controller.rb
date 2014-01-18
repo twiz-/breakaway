@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   def index
   end
   def show
-    @player = Player.find_by_profile_name(params[:id])
+    @player = Player.find_by_id(params[:id])
     
     if @player
       @listings = @player.listings
@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
           format.html
           format.csv {send_data Game.to_csv(@games)}
       end
-      return action: :show
+      render action: :show
     else 
       render file: "public/404", status: 404, formats: [:html]
     end
