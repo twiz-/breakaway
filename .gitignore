@@ -14,3 +14,12 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# ignore os generated files
+app/assets/.DS_Store
+.DS_Store
+app/.DS_Store
+app/assets/.DS_Store
+app/assets/stylesheets/.DS_Store
+vendor/.DS_Store
+vendor/assets/javascripts/.DS_Store
