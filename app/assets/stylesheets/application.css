@@ -11,6 +11,8 @@
  *= require_self
  *= require_tree .
  *= require_bootstrap
+ *= require_jquery.fancybox
+ *= require_jquery.fancybox-buttons
  */
 
 .notice {
