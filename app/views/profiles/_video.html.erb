@@ -1,0 +1,4 @@
+<% @listings.each do |listing| %>
+	<%= youtube_thumb_embed(listing.video).html_safe %><br>
+	<%= listing.description %>
+<% end %>

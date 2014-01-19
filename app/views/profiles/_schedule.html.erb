@@ -1,0 +1,22 @@
+<%= link_to "Download my Schedule", profile_path(format: 'csv')%>
+<% @games.each do |game| %>
+<br><br>
+	<table class="table">
+		<th>Date</th>
+		<th>Game Time</th>
+		<th>Location</th>
+		<th>Opponent</th>
+		<th></th>
+		<tr>
+			<td><%= game.scheduled_date %></td>
+			<td><%= game.scheduled_time %></td>
+			<td> <%= game.location %></td>
+			<td> <%= game.opponent %></td>
+			<% if current_player %>
+			<td><%= link_to "edit", edit_game_path(game) %> | <%= link_to "remove", game, method: :delete, data: {confirm: "This can't be undone"} %>  
+			</td>
+			<% end %>	
+		</tr>
+
+	</table>
+<% end %>	

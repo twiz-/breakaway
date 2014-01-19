@@ -42,7 +42,7 @@ class GamesController < ApplicationController
   # PATCH/PUT /games/1.json
   def update
     respond_to do |format|
-      if @game.update(params[:game])
+      if @game.update(game_params)
         format.html { redirect_to @game, notice: 'Game was successfully updated.' }
         format.json { head :no_content }
       else
@@ -57,7 +57,7 @@ class GamesController < ApplicationController
   def destroy
     @game.destroy
     respond_to do |format|
-      format.html { redirect_to games_url }
+      format.html { redirect_to root }
       format.json { head :no_content }
     end
   end
