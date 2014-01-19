@@ -12,11 +12,14 @@ Breakaway::Application.routes.draw do
                                         :sessions => "coaches/sessions", 
                                         :passwords => "coaches/passwords"}
 
-  get "profiles/show"                                          
+  get "profiles/show" 
+  get '/players', to: "profiles#index", as: 'players'                                         
   get "dashboard/show"
+  get "dashboard", to: "dashboard#show", as: 'dashboard'
   get 'friendships/:friend_id' => 'user_friendships#new', :as => :new_friendship
 
-  get '/:id', to: "profiles#show", as: 'profile'
+  get '/:profile_name', to: "profiles#show", as: 'profile'
+  
   resources :games
   resources :listings
   resources :user_friendships

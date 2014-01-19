@@ -22,13 +22,13 @@
 	      <ul class="nav navbar-nav">
 		  <% if user_signed_in?  %>
 	        <li>
-	         <a> Dashboard</a>
+				<%= link_to "Dashboard", dashboard_path %>
 	        </li>
 	        <li>
 				
 	        </li>
 	        <li>
-			<a>All Players</a>
+				<%= link_to "All Players", players_path %>
 	        </li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">

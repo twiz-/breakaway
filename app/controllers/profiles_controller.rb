@@ -1,16 +1,18 @@
 class ProfilesController < ApplicationController
   def index
+    @profiles = Player.all
   end
   def show
-    @player = Player.find_by_id(params[:id])
+    @player = Player.find_by_profile_name(params[:profile_name])
     
     if @player
       @listings = @player.listings
-      @games = @user.games
+      @games = @player.games
       respond_to do |format|
           format.html
           format.csv {send_data Game.to_csv(@games)}
       end
+      return
       render action: :show
     else 
       render file: "public/404", status: 404, formats: [:html]

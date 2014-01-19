@@ -1,2 +1,10 @@
-<h1>UserFriendships#new</h1>
-<p>Find me in app/views/user_friendships/new.html.erb</p>
+<% if @friend %>
+	<%= @friend.first_name %>
+	
+	<p>Add <%= @friend.first_name %> to your Watch List? </p>
+	<%= form_for @user_friendship, method: :post do |form| %>
+	<%= form.hidden_field :friend_id, value: @friend.profile_name %>
+	<%= submit_tag "Yeah Do it!", class: "btn" %>
+	<%= link_to "oops Nevermind player", profile_path(@friend.profile_name), clas: "btn btn-mini"%>
+	<% end %>
+<% end %>
