@@ -8,4 +8,8 @@ class Player < User
   
   has_many :listings
   has_many :games
+  
+  def full_name
+    self.first_name + "  " + self.last_name
+  end
 end
