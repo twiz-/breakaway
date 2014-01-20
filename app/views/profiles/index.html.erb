@@ -1,6 +1,38 @@
-<h2>Hello Boys Imm baaaack</h2>
+<h2>All Players</h2>
 <% @profiles.each do |profile|%>
 	<li><%= profile.first_name %></li>
 	<li><%= profile.club_team %></li>
 	<li><%= link_to profile.last_name, profile_path(profile.profile_name) %></li>
 <% end %>
+
+<div class="row">
+	<% @profiles.each do |profile|%>
+		<% if profile.listings.count >= 1 %>
+		<div class="col-md-4 well-listing" style="background-color: red;">
+			<div class="row" style="text-align:center;">
+				<% profile.listings.each do |video| %>
+					<%= youtube_thumb_embed(video.video).html_safe %><br>
+					<%= video.description %>
+				<% end %>
+			</div>
+			<div class="row" style="background-color:blue;">
+				<div class="col-md-2" style="background-color:green; height:41px;">
+					<%= profile.grad_year%>
+				</div>	
+				<div class="col-md-5" style="background-color:black;">
+					<%= profile.club_team %>
+					<%= profile.position %> in a <%= profile.formation %>
+				</div>
+				<div class="col-md-5" style="background-color:orange;">
+					<div class="pull-right">
+					 <%= profile.full_name %><br>
+					 <%= link_to "Add as favorite", new_friendship_path(friend_id: profile.profile_name) if current_user == current_coach %>
+				 	</div>
+				</div>	
+			</div>	
+		</div>
+		<% end %>
+	
+	
+	<% end %>
+</div>
