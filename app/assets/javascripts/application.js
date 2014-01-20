@@ -11,13 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap
 //= require thing-fany
 //= require jquery.fancybox
 //= require jquery.fancybox-media
 //= require jquery.fancybox-buttons
 //= require jquery.fancybox-thumbs
-
+//= require turbolinks
 //= require_tree .

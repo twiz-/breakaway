@@ -1,4 +1,11 @@
-<% @listings.each do |listing| %>
-	<%= youtube_thumb_embed(listing.video).html_safe %><br>
-	<%= listing.description %>
-<% end %>
+<div class="row">
+	<% @listings.each do |listing| %>
+
+	<div class="well col-xs-7 col-md-5">
+			<%= youtube_thumb_embed(listing.video).html_safe %><br>
+			<%= listing.description %><br>
+			<strong><%= link_to "Watch This Video", listing.video, {class: "fancybox-media"} %></strong><br>
+			<%= link_to "Remove", listing, method: :delete, data:{confirm: "This cannot be undone"} if current_player == listing.player %>
+	</div>	
+	<% end %>
+</div>
