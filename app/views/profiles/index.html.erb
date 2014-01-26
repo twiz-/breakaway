@@ -1,9 +1,10 @@
 <%= search_form_for @search do |f| %>
 	<div class="field">
 		<%= f.label :position_contains %>
-		<%= f.text_field :position_cont %>
+		<%= f.text_field :position_cont, class: 'search-field' %>
 	</div>
     <div class="actions"><%= f.submit "Search", class: 'btn btn-xs' %></div>
+	<div class="actions"><%= f.submit "Reset", id: 'q_clear' %></div>
 <% end %>
 <br>
 <div class="row">

@@ -9,3 +9,8 @@ ready = ->
       media: {}
 	
 $(document).ready(ready)
+
+
+$ ->
+  $("#q_clear").click ->
+    $(".search-field").val('')
