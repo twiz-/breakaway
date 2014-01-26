@@ -2,12 +2,12 @@
 	<% @profiles.each do |profile|%>
 		<% if profile.listings.count >= 1 %>
 		<div class="col-md-4 well-listing">
-			<div class="row" style="text-align:left background-color: blue;">
+			<div class="row" style="text-align:left;">
 				<div id="videoCarousel-<%= profile.profile_name %>" data-interval="false" class="carousel slide" data-ride="carousel">
 				  <div class="carousel-inner">
 						<% profile.listings.each do |video| %>						
 							<div class="item <%= 'active' if profile.listings.index(video) == 0 %>">
-								<%= youtube_thumb_embed(video.video).html_safe %>
+								<%= link_to youtube_thumb_embed(video.video).html_safe,profile_path(profile.profile_name) %>
 								<p class="video-description"><%= truncate(video.description, length: 50) %></p>
 						    </div>
 						<% end %>
@@ -38,7 +38,9 @@
 				</div>	
 				<div class="col-md-5 col-md-offset-2">
 					<% if user_signed_in? && current_user == current_coach%>
-					 	<%= link_to "Add as favorite", new_friendship_path(friend_id: profile.profile_name) if current_user == current_coach %>
+					<button class="col-md-offset-2 btn btn-warning btn-xs">
+					 		<%= link_to "Add as favorite", new_friendship_path(friend_id: profile.profile_name) if current_user == current_coach %>
+						</button>
 					<% else %>
 					<button class="col-md-offset-2 btn btn-warning btn-xs alertify-sign-up">Add to watchlist</button>
 					<% end %>
