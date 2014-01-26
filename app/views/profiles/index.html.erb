@@ -1,3 +1,11 @@
+<%= search_form_for @search do |f| %>
+	<div class="field">
+		<%= f.label :position_contains %>
+		<%= f.text_field :position_cont %>
+	</div>
+    <div class="actions"><%= f.submit "Search", class: 'btn btn-xs' %></div>
+<% end %>
+<br>
 <div class="row">
 	<% @profiles.each do |profile|%>
 		<% if profile.listings.count >= 1 %>

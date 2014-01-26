@@ -1,6 +1,8 @@
 class ProfilesController < ApplicationController
   def index
-    @profiles = Player.all
+    @search = Player.search(params[:q])
+    @profiles = @search.result
+    
   end
   def show
     @player = Player.find_by_profile_name(params[:profile_name])
