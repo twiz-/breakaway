@@ -1,3 +1,9 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.video-description { 
+	z-index: 100;
+	background-color: blue;
+	margin-top: -20px;
+	width: 320px;
+}

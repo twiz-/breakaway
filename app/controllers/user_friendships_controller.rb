@@ -12,6 +12,7 @@ class UserFriendshipsController < ApplicationController
   end
 
   def create
+    # can create a before filter here to move logic out of the view to make sure current_user_coach_and_signed_in
     if params[:user_friendship] && params[:user_friendship].has_key?(:friend_id)
       @friend = User.where(profile_name: params[:user_friendship][:friend_id]).first
       @user_friendship = current_coach.user_friendships.new(friend: @friend)
