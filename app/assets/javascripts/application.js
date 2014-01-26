@@ -13,11 +13,13 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require alertify
 //= require bootstrap
 //= require thing-fany
 //= require jquery.fancybox
 //= require jquery.fancybox-media
 //= require jquery.fancybox-buttons
 //= require jquery.fancybox-thumbs
+
 //= require turbolinks
 //= require_tree .
