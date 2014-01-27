@@ -57,7 +57,7 @@ class GamesController < ApplicationController
   def destroy
     @game.destroy
     respond_to do |format|
-      format.html { redirect_to root }
+      format.html { redirect_to profile_path }
       format.json { head :no_content }
     end
   end

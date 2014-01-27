@@ -1,9 +1,21 @@
-<div>
-	<% @games.each do |game| %>
-	<li><%= game.scheduled_date.strftime("%m/%d/%Y") %></li>
-		<li><%= game.location %></li>
-		<li><%= game.scheduled_time %></li>
-		<li><%= game.opponent %></li>
-		<p>------------</p>
-	<% end %>
-</div>
+<% @games.each do |game| %>
+<br><br>
+	<table class="table table-hover">
+		<th>Date</th>
+		<th>Game Time</th>
+		<th>Location</th>
+		<th>Opponent</th>
+		<th></th>
+		<tr>
+			<td><%= game.scheduled_date %></td>
+			<td><%= game.scheduled_time %></td>
+			<td> <%= game.location %></td>
+			<td> <%= game.opponent %></td>
+			<% if current_player %>
+			<td><%= link_to "edit", edit_game_path(game) %> | <%= link_to "remove", game, method: :delete, data: {confirm: "This can't be undone"} %>  
+			</td>
+			<% end %>	
+		</tr>
+
+	</table>
+<% end %>	

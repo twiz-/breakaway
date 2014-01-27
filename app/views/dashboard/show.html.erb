@@ -1,2 +1,2 @@
-<%= render 'player' if current_player %>
-<%= render 'coach' if current_coach %>
+<%= render 'player' if current_player && player_signed_in? %>
+<%= render 'coach' if current_coach && coach_signed_in? %>
