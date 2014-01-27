@@ -1,5 +1,40 @@
 
 <br><br>
-<% @profiles.each do |profile| %>
- <li><%= profile.first_name %> |</li>
-<% end %>
+
+
+<ul class="nav nav-tabs">
+	<li class="active"><a href="#video_listing" data-toggle="tab">My Favorites List</a></li>
+	<li><a href="#schedule_listing" data-toggle="tab">Their upcoming Games</a></li>
+</ul>
+<div class="tab-content">
+	<div class="tab-pane active" id="video_listing">
+		<br>
+		<% @profiles.each do |profile| %>
+		  <%= youtube_thumb_embed(profile.listings.last.video).html_safe %><br>
+		  - <%= profile.position %><br>
+		  - <%= profile.grad_year %><br>
+		  - <%= profile.club_team %><br>
+		  - <%= profile.formation %><br>
+		- <%= link_to "View #{profile.first_name}'s Profile", profile_path(profile.profile_name) %><br>s
+		
+		<% end %>
+	</div>
+	<div class="tab-pane" id="schedule_listing">
+	 	<table class="table table-hover">
+	 		<th>Date</th>
+	 		<th>Game Time</th>
+	 		<th>Location</th>
+	 		<th>Opponent</th>
+		<% @profiles.each do |player| %>
+		 <% player.games.each do |game| %>
+		 		<tr>	
+		 			<td><%= game.scheduled_date %></td>
+		 			<td><%= game.scheduled_time %></td>
+		 			<td> <%= game.location %></td>
+		 			<td> <%= game.opponent %></td>
+		 		</tr>		 
+		 <% end %>
+		<% end %>
+		</table>
+	</div>
+</div>
