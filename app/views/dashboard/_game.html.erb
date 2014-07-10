@@ -1,11 +1,9 @@
+<table class="table table-hover">
+	<th>Date</th>
+	<th>Game Time</th>
+	<th>Location</th>
+	<th>Opponent</th>
 <% @games.each do |game| %>
-<br><br>
-	<table class="table table-hover">
-		<th>Date</th>
-		<th>Game Time</th>
-		<th>Location</th>
-		<th>Opponent</th>
-		<th></th>
 		<tr>
 			<td><%= game.scheduled_date %></td>
 			<td><%= game.scheduled_time %></td>
@@ -16,6 +14,5 @@
 			</td>
 			<% end %>	
 		</tr>
-
-	</table>
 <% end %>	
+</table>
