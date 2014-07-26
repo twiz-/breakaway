@@ -46,12 +46,12 @@
 				 	</div>
 				</div>	
 				<div class="col-md-5 col-md-offset-2">
-					<% if user_signed_in? && current_user == current_coach %>
+					<% if coach_signed_in? && current_coach %>
 					<button class="col-md-offset-2 btn btn-warning btn-xs">
-					 		<%= link_to "Add as favorite", new_friendship_path(friend_id: profile.profile_name) if current_user == current_coach %>
+					 		<%= link_to "Add as favorite", new_friendship_path(friend_id: profile.profile_name) %>
 						</button>
 					<% else %>
-					<button class="col-md-offset-2 btn btn-warning btn-xs alertify-sign-up">Add to watchlist</button>
+					  <button class="col-md-offset-2 btn btn-warning btn-xs">Add to watchlist</button>
 					<% end %>
 				</div>	
 			</div>	

@@ -1,4 +1,5 @@
 class UserFriendshipsController < ApplicationController
+  before_filter :check_signed_in_coach
   def new
     if params[:friend_id]
       @friend = User.where(profile_name: params[:friend_id]).first
@@ -23,5 +24,9 @@ class UserFriendshipsController < ApplicationController
       flash[:error] = "friend required"
       redirect_to root_path
     end
+  end
+  private
+  def check_signed_in_coach
+    authenticate_coach! && coach_signed_in?
   end
 end
