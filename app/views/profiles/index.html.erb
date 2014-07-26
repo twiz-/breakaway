@@ -47,9 +47,7 @@
 				</div>	
 				<div class="col-md-5 col-md-offset-2">
 					<% if coach_signed_in? && current_coach %>
-					<button class="col-md-offset-2 btn btn-warning btn-xs">
-					 		<%= link_to "Add as favorite", new_friendship_path(friend_id: profile.profile_name) %>
-						</button>
+					  <%= link_to "Add as favorite", new_friendship_path(friend_id: profile.profile_name), class: "btn btn-xs btn-warning col-md-offset-2" %>
 					<% else %>
 					  <button class="col-md-offset-2 btn btn-warning btn-xs">Add to watchlist</button>
 					<% end %>
