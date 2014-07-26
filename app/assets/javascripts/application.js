@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require alertify
 //= require bootstrap
 //= require thing-fany
 //= require jquery.fancybox
