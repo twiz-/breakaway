@@ -1,3 +1,20 @@
+<div class="modal fade signup-modal-sm" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+	  <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	          <h4 class="modal-title" id="myModalLabel">Start assembling your prospective recruiting class now</h4>
+	   </div>
+       <div class="modal-body">
+         Wait! You must be signed up as a coach to save players you want to keep an eye on. 
+		 <%= link_to "Coach Signup", new_coach_registration_path, class: "btn btn-xs btn-success" %>
+       </div>
+       <div class="modal-footer">
+         <small>Already a member? <%= link_to "Login", new_coach_session_path %> </small>
+       </div>
+    </div>
+  </div>
+</div>
 <%= search_form_for @search do |f| %>
 	<div class="field">
 		<%= f.label :position_cont, 'Search by Position' %>
@@ -49,7 +66,7 @@
 					<% if coach_signed_in? && current_coach %>
 					  <%= link_to "Add as favorite", new_friendship_path(friend_id: profile.profile_name), class: "btn btn-xs btn-warning col-md-offset-2" %>
 					<% else %>
-					  <button class="col-md-offset-2 btn btn-warning btn-xs">Add to watchlist</button>
+					  <button data-toggle="modal" data-target=".signup-modal-sm" class="col-md-offset-2 btn btn-warning btn-xs">Add to watchlist</button>
 					<% end %>
 				</div>	
 			</div>	
