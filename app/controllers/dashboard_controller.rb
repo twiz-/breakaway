@@ -1,4 +1,6 @@
 class DashboardController < ApplicationController
+  before_filter :authenticate_player!
+  
   def show
     if current_coach
        @profiles = current_coach.friends
