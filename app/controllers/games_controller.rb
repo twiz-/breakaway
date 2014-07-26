@@ -1,13 +1,7 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
   before_filter :check_permission, only: [:edit, :update, :destroy]
-
-  # GET /games
-  # GET /games.json
-  def index
-    @games = Game.all
-  end
-
+  
   # GET /games/1
   # GET /games/1.json
   def show
@@ -57,7 +51,7 @@ class GamesController < ApplicationController
   def destroy
     @game.destroy
     respond_to do |format|
-      format.html { redirect_to profile_path }
+      format.html { redirect_to profile_path(current_player.profile_name) }
       format.json { head :no_content }
     end
   end
