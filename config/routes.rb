@@ -21,7 +21,7 @@ Breakaway::Application.routes.draw do
   get '/:profile_name', to: "profiles#show", as: 'profile'
   
   resources :games
-  resources :listings
+  resources :listings, except: :show
   resources :user_friendships
   
   # The priority is based upon order of creation: first created -> highest priority.

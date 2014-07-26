@@ -1,18 +1,13 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_player!, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.order('created_at DESC').all
-    
+    @listings = Listing.order('created_at DESC').all    
   end
-
-  # GET /listings/1
-  # GET /listings/1.json
-  def show
-  end
-
+  
   # GET /listings/new
   def new
     @listing = current_player.listings.new
