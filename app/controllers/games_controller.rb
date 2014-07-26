@@ -1,6 +1,9 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
   before_filter :check_permission, only: [:edit, :update, :destroy]
+  before_filter :player_can_play, only: [:show, :new, :edit, :update, :create, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :game_no_show
+  
   
   # GET /games/1
   # GET /games/1.json
@@ -60,8 +63,6 @@ class GamesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_game
       @game = Game.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      render file: 'public/404', status: :not_found
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -71,5 +72,12 @@ class GamesController < ApplicationController
     
     def check_permission
         handle_no_access if current_player != @game.player
+    end
+    def player_can_play
+      redirect_to root_path, notice: "Sign in first my friend" unless current_player && player_signed_in?
+    end
+    def game_no_show
+      logger.error "Tried to show a game that did not exist"
+      redirect_to root_path, notice: "This game does not exist"
     end
 end
