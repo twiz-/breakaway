@@ -2,7 +2,7 @@
 	<% @listings.each do |listing| %>
 
 	<div class="well col-xs-7 col-md-4">
-			<%= youtube_thumb_embed(listing.video).html_safe %><br>
+			<%= image_tag "http://i1.ytimg.com/vi/#{youtube_thumb_embed(listing.video)}/mqdefault.jpg", class: "thumb-town" %><br>
 			<%= listing.description %><br>
 			<strong><%= link_to "Watch This Video", listing.video, {class: "fancybox-media"} %></strong><br>
 	</div>	

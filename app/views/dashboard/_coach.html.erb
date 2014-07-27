@@ -10,13 +10,12 @@
 	<div class="tab-pane active" id="video_listing">
 		<br>
 		<% @profiles.each do |profile| %>
-		  <%= youtube_thumb_embed(profile.listings.last.video).html_safe %><br>
+ 		  - <%= image_tag "http://i1.ytimg.com/vi/#{profile.listings.last.video}/mqdefault.jpg", class:  "dash-thumb" %>
 		  - <%= profile.position %><br>
 		  - <%= profile.grad_year %><br>
 		  - <%= profile.club_team %><br>
 		  - <%= profile.formation %><br>
-		- <%= link_to "View #{profile.first_name}'s Profile", profile_path(profile.profile_name) %><br>s
-		
+		  - <%= link_to "View #{profile.first_name}'s Profile", profile_path(profile.profile_name) %><br>		
 		<% end %>
 	</div>
 	<div class="tab-pane" id="schedule_listing">

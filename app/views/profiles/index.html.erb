@@ -33,7 +33,7 @@
 				  <div class="carousel-inner">
 						<% profile.listings.each do |video| %>						
 							<div class="item <%= 'active' if profile.listings.index(video) == 0 %>">
-								<%= link_to youtube_thumb_embed(video.video).html_safe,profile_path(profile.profile_name) %>
+								<%= link_to image_tag("http://i1.ytimg.com/vi/#{youtube_thumb_embed(video.video)}/mqdefault.jpg"), profile_path(profile.profile_name) %>
 								<p class="video-description"><%= truncate(video.description, length: 50) %></p>
 						    </div>
 						<% end %>

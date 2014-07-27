@@ -2,7 +2,7 @@
 	<% @listings.each do |listing| %>
 	 <div class="row">
 		 <div class="col-md-6 dash-game-list">
-			  <%= youtube_thumb_embed_dash(listing.video).html_safe %>
+			  <img class="dash-thumb" src="http://i1.ytimg.com/vi/<%= youtube_thumb_embed(listing.video)%>/mqdefault.jpg">
 			  <div class="pull-right">
 				  <ul class="admin-dash-functions" style="text-align:right;">
 					 <li><%= listing.description %> </li>
