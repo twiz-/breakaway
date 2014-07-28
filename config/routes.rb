@@ -2,6 +2,9 @@ Breakaway::Application.routes.draw do
   
   
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  
   root to: "marketing#splash"
   
   devise_for :players, :controllers => {:registrations => "players/registrations",

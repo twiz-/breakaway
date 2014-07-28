@@ -4,8 +4,11 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 gem 'devise'
 
-# simple searc
+# simple search
 gem 'ransack'
+
+#managing and approving coaches
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
