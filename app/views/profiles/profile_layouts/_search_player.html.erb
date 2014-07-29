@@ -1,8 +1,15 @@
-<%= search_form_for @search do |f| %>
-	<div class="field">
-		<%= f.label :position_cont, 'Search by Position' %>
-		<%= f.text_field :position_cont, class: 'search-field' %>
-	</div>
-    <div class="actions"><%= f.submit "Search", class: 'btn btn-xs btn-info' %></div>
-	<div class="actions"><%= f.submit "Reset", id: 'q_clear', class: 'btn btn-xs btn-danger' %></div>
-<% end %>
+<div class="row">
+  <h3>Search by position</h3>
+  <div class="col-md-5">
+    <%= search_form_for @search do |f| %>
+	    <div class="input-group">
+			
+	      <span class="input-group-btn">
+			<%= f.submit "search", class: 'btn btn-success actions' %>
+			<%= f.submit "reset", id: 'q_clear', class: 'btn btn-warning actions' %>				    
+	      </span>
+		  <%= f.text_field :position_cont, class: 'form-control search-field', placeholder: "e.g. striker, defender, midfielder" %>
+	    </div><!-- /input-group -->
+	<% end %>	
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
