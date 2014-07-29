@@ -1,0 +1,8 @@
+<%= search_form_for @search do |f| %>
+	<div class="field">
+		<%= f.label :position_cont, 'Search by Position' %>
+		<%= f.text_field :position_cont, class: 'search-field' %>
+	</div>
+    <div class="actions"><%= f.submit "Search", class: 'btn btn-xs btn-info' %></div>
+	<div class="actions"><%= f.submit "Reset", id: 'q_clear', class: 'btn btn-xs btn-danger' %></div>
+<% end %>

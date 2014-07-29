@@ -1,0 +1,42 @@
+<% @profiles.each do |profile| %>
+  <% if profile.listings.count >= 1 %> 
+   <div class='col-md-3 col-sm-5 col-xs-5 card-wrapper'>
+     <div class="row">
+		 <div id="carousel<%= profile.profile_name %>" data-interval="false" class="carousel slide" data-ride="carousel">
+		   <div class="carousel-inner" >
+			   <% profile.listings.each do |video| %>
+			     <div class="item <%= 'active' if profile.listings.index(video) == 0 %> center-it">
+			       <%= link_to image_tag("http://i1.ytimg.com/vi/#{youtube_thumb_embed(video.video)}/mqdefault.jpg"), profile_path(profile.profile_name) %>
+				    <p class="video-description"><%= truncate(video.description, length: 40) %></p>
+			     </div>
+			   <% end %>
+		   </div>
+		 </div>
+     </div>   
+	 <div class="row">
+		  <% if profile.listings.count > 1 %>
+			  <small style="padding-left:5px;">
+				   <a href="#carousel<%= profile.profile_name %>" data-slide="prev">Prev video</a> |
+				   <a href="#carousel<%= profile.profile_name %>" data-slide="next">Next video</a>
+		      </small>
+		  <% else %>
+		   <span class="explainer-text">just one video..</span>
+		  <% end %>  
+		 <ul>
+			<li><%= profile.position %> for <%= profile.club_team %></li>
+			<li><%= profile.grad_year %> graduate</li>
+		    <li><%= profile.formation %></li>
+		    <li><%= profile.full_name %></li>
+		    
+		 </ul>
+		 <div class="center-it favorite-button">
+		  <% if coach_signed_in? && current_coach %>
+		    <%= link_to "Add as Favorite", new_friendship_path(friend_id: profile.profile_name), class: "btn btn btn-success" %>
+		  <% else %>
+		    <button data-toggle="modal" data-target=".signup-modal-sm" class="btn btn-success">Add as Favorite</button>
+		  <% end %> 
+	     </div>
+     </div>
+   </div>
+  <% end %>	
+<% end %>
