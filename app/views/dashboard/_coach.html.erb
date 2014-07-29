@@ -1,36 +1,45 @@
-
 <br><br>
-
-
 <ul class="nav nav-tabs">
-	<li class="active"><a href="#video_listing" data-toggle="tab">My Favorites List</a></li>
-	<li><a href="#schedule_listing" data-toggle="tab">Their upcoming Games</a></li>
+	<li class="active"><a href="#video_listing" data-toggle="tab">All my favorites</a></li>
+	<li><a href="#schedule_listing" data-toggle="tab">All favorites upcoming games</a></li>
 </ul>
 <div class="tab-content">
 	<div class="tab-pane active" id="video_listing">
-		<br>
-		<% @profiles.each do |profile| %>
- 		  - <%= image_tag "http://i1.ytimg.com/vi/#{youtube_thumb_embed(profile.listings.last.video)}/mqdefault.jpg", class: "dash-thumb" %>
-		  - <%= profile.position %><br>
-		  - <%= profile.grad_year %><br>
-		  - <%= profile.club_team %><br>
-		  - <%= profile.formation %><br>
-		  - <%= link_to "View #{profile.first_name}'s Profile", profile_path(profile.profile_name) %><br>		
-		<% end %>
+		<div class="row">	
+			<br>
+			<ul style="list-style:none;">
+				<% @profiles.each do |profile| %>
+						 <div class="col-md-2 col-sm-4 col-xs-6" style="margin-left: 10px;">
+			   		      <li><%= image_tag "http://i1.ytimg.com/vi/#{youtube_thumb_embed(profile.listings.last.video)}/mqdefault.jpg", class: "dash-thumb" %></li><br>
+					
+				  		   <li><%= profile.position %> for <%= profile.club_team %></li>
+		                   <li> <%= profile.grad_year %> graduate</li>
+				  		   <li><%= profile.formation %></li>
+				  		   <li><%= link_to "View #{profile.first_name}'s Profile", profile_path(profile.profile_name) %></li>
+						 </div>
+			        
+									
+				<% end %>
+			</ul>
+		</div>	
 	</div>
 	<div class="tab-pane" id="schedule_listing">
 	 	<table class="table table-hover">
-	 		<th>Date</th>
-	 		<th>Game Time</th>
+			<th>Team</th>
+			<th>Player</th>
 	 		<th>Location</th>
 	 		<th>Opponent</th>
+	 		<th>Date</th>
+	 		<th>Game Time</th>
 		<% @profiles.each do |player| %>
 		 <% player.games.each do |game| %>
-		 		<tr>	
-		 			<td><%= game.scheduled_date %></td>
-		 			<td><%= game.scheduled_time %></td>
+		 		<tr>
+					<td><%= player.club_team %></td>
+					<td><%= player.full_name %></td>			 			
 		 			<td> <%= game.location %></td>
 		 			<td> <%= game.opponent %></td>
+					<td><%= game.scheduled_time %></td>
+					<td><%= game.scheduled_date %></td>
 		 		</tr>		 
 		 <% end %>
 		<% end %>
