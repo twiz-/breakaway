@@ -1,0 +1,17 @@
+<div class="modal fade signup-modal-sm" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+	  <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	          <h4 class="modal-title" id="myModalLabel">Start assembling your prospective recruiting class now</h4>
+	   </div>
+       <div class="modal-body">
+         Wait! You must be signed up as a coach to save players you want to keep an eye on. 
+		 <%= link_to "Coach Signup", new_coach_registration_path, class: "btn btn-xs btn-success" %>
+       </div>
+       <div class="modal-footer">
+         <small>Already a member? <%= link_to "Login", new_coach_session_path %> </small>
+       </div>
+    </div>
+  </div>
+</div>
