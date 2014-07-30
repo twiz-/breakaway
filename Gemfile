@@ -11,7 +11,13 @@ gem 'ransack'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
+group :development do 
+  gem 'sqlite3'
+end
+
+#use pg for production with heroku
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
