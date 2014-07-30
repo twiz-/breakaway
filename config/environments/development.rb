@@ -15,11 +15,11 @@ Breakaway::Application.configure do
   # send email through postmark in development
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-       address: "smtp.gmail.com",
-       port: 587, 
-       domain: "gmail.com",
-       user_name: ENV['POST_USER'],
-       password: ENV['POST_PASS'],
+       address: "smtp.postmarkapp.com",
+       port: 2525, 
+       domain: "54footy.com",
+       user_name: ENV['PostMarkKeyID'],
+       password: ENV['PostMarkKeyID'],
        authentication: 'plain', 
        enable_starttls_auto: true
   }
