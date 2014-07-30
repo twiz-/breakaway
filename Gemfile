@@ -7,6 +7,9 @@ gem 'devise'
 # compile assets during slug comp
 gem 'rails_12factor', group: :production
 
+#managing and approving coaches
+gem 'activeadmin', github: 'gregbell/active_admin'
+
 #use pg for production with heroku
 gem 'pg'
 
