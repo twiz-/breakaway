@@ -12,9 +12,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Use sqlite3 as the database for Active Record
 
-group :development do 
-  gem 'sqlite3'
-end
+gem 'sqlite3',  group: :development
 
 #use pg for production with heroku
 gem 'pg'
