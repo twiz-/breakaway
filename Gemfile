@@ -16,6 +16,8 @@ gem 'pg'
 # search
 gem 'ransack'
 
+# mailer
+gem 'postmark-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
