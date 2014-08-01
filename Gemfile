@@ -15,6 +15,9 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 #use pg for production with heroku
 gem 'pg'
 
+#blog for marketing
+gem 'bloggy'
+
 # search
 gem 'ransack'
 
