@@ -18,7 +18,7 @@ class DashboardController < ApplicationController
     elsif current_player
       :authenticate_player!
     else 
-      redirect_to root_path, notice: "Must be signed in ot do that"
+      redirect_to root_path, notice: "Must be signed in to do that"
     end
   end
 end

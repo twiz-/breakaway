@@ -4,11 +4,17 @@
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
    <title>7/31-blue-v-flash</title>
    <meta name="author" content="54footy" />
+   <!--Timeline style taken from here http://codyhouse.co/ many cool things -->
 
    <!-- syntax highlighting CSS -->
    <link rel="stylesheet" href="/blog/css/syntax.css" type="text/css" />
+   <link rel="stylesheet" href="/blog/css/timeline/timeline-reset.css" type="text/css" />
+   <link rel="stylesheet" href="/blog/css/timeline/timeline-style.css" type="text/css" />
+   <link rel="stylesheet" href="/blog/scss/timeline-style.scss" type="text/scss" />
+   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
    
-   <!--add bootstrap styles and/or the ones from that dude guy  -->
+   
+   
 
    <!-- Homepage CSS -->
    <link rel="stylesheet" href="/blog/css/screen.css" type="text/css" media="screen, projection" />
@@ -16,8 +22,10 @@
    <!-- Typekit -->
    <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+   <!--jQuery -->
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
-<body>
+<body style="background:#eee;">
 
 <div class="site">
   <div class="title">
@@ -26,9 +34,56 @@
 
   <div id="post">
 	  <p>Highlights from the 7/31/14 Sky Blue FC flash Vs Western New York Flash game.</p>
-	  <section>
-		  So I guess this would just be something I can do from hand for a hot minute then push after. 
-	  </section>
+	   
+	<section id="cd-timeline" class="cd-container">
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<i class="fa fa-university"></i> 
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>Title of section 1</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+				<span class="cd-date">Jan 14</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<i class="fa fa-university"></i> 
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>Title of section 2</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde?</p>
+				<span class="cd-date">Jan 18</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<i class="fa fa-university"></i> 
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>Title of section 3</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus </p>
+				<span class="cd-date">Jan 24</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<i class="fa fa-university"></i> 
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>Final Section</h2>
+				<p>This is the content of the last section</p>
+				<span class="cd-date">Feb 26</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+	</section> <!-- cd-timeline -->
 
 </div>
 
@@ -54,7 +109,27 @@
     </div>
   </div>
 </div>
+<script>
+jQuery(document).ready(function($){
+	var $timeline_block = $('.cd-timeline-block');
 
+	//hide timeline blocks which are outside the viewport
+	$timeline_block.each(function(){
+		if($(this).offset().top > $(window).scrollTop()+$(window).height()*0.75) {
+			$(this).find('.cd-timeline-img, .cd-timeline-content').addClass('is-hidden');
+		}
+	});
+
+	//on scolling, show/animate timeline blocks when enter the viewport
+	$(window).on('scroll', function(){
+		$timeline_block.each(function(){
+			if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
+				$(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
+			}
+		});
+	});
+});
+</script>
 <!-- ClickTale end of Bottom part -->
 
 <!-- Google Analytics -->

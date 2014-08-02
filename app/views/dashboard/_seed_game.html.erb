@@ -1,0 +1,22 @@
+<br>
+<div class="alert alert-info">
+<p>College coaches want to see your upcoming schedule, make it easy for them here - <%= link_to "Add my first game", new_game_path %>
+</div>
+<table class="table table-hover">
+	<th>Date</th>
+	<th>Game Time</th>
+	<th>Location</th>
+	<th>Opponent</th>
+<% @games.each do |game| %>
+		<tr>
+			<td><%= game.scheduled_date %></td>
+			<td><%= game.scheduled_time %></td>
+			<td> <%= game.location %></td>
+			<td> <%= game.opponent %></td>
+			<% if current_player %>
+			<td><%= link_to "edit", edit_game_path(game) %> | <%= link_to "remove", game, method: :delete, data: {confirm: "This can't be undone"} %>  
+			</td>
+			<% end %>	
+		</tr>
+<% end %>	
+</table>

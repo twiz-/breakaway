@@ -8,6 +8,18 @@
 	<li><a href="#schedule_listing" data-toggle="tab">My Upcoming Game</a></li>
 </ul>
 <div class="tab-content">
-	<div class="tab-pane active" id="video_listing"><br><%= render 'video' %></div>
-	<div class="tab-pane" id="schedule_listing"><%= render 'game' %> </div>
+	<div class="tab-pane active" id="video_listing">
+		<% if @listings.size > 0 %>
+		 <br><%= render 'video' %>
+		<% else %>
+		     <%= render 'seed_video' %>
+		<% end %>
+	</div>
+	<div class="tab-pane" id="schedule_listing">
+		<% if @games.size > 0 %>
+		<br><%= render 'game' %> 
+		<% else %>
+			 <%= render 'seed_game' %>
+		<% end %>
+	</div>
 </div>
