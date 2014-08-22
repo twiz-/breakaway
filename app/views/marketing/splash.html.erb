@@ -5,6 +5,7 @@
   <title>Breakaway</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body class="container">
@@ -56,15 +57,14 @@
 </header>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-<div class="row" style="background:green;">
-	<div class="col-md-7 center-block" style="background:blue;float:none;text-align:center;">
-		<h1>Find your next leading goal scorer</h1>
+<div class="row" style="height: 400px;">
+	<div class="col-md-8 center-block" style="float:none;text-align:center;margin-bottom:30px;">
+		<span id="main-header">Find your next leading goal scorer</span>
 	</div>
-	<div class="col-md-7 center-block" style="background:blue;float:none;text-align:center;">
-		<%= link_to "Find My Next Recruit", players_path, class: "btn btn-lg btn-success"%>
+	<div class="col-md-7 center-block" style="float:none;text-align:center;">
+		<%= link_to "Browse Recruits", players_path, class: "btn btn-lg btn-marketing"%>
 	</div>
 </div>	
-
 <footer class="footer container">
   <small>
     <a href="http://54footy.com/blog">breakaway</a>
@@ -72,12 +72,14 @@
   </small>
   <nav>
     <ul>
-      <li><a href="#">About</a></li>
-      <li><a href="mailto:tony@54footy.com">Support</a></li>
-      <li><a href="http://localhost:3000/blog">Blog</a></li>
+      <li><a class="front_contact" href="#">About</a></li>
+      <li><a class="front_contact" href="mailto:tony@54footy.com">Support</a></li>
+      <li><a class="front_contact" href="http://localhost:3000/blog">Blog</a></li>
     </ul>
   </nav>
 </footer>
-
+<script>
+$.backstretch("https://s3-us-west-2.amazonaws.com/presentation-assets/fall_class.jpg")
+</script>
 </body>
 </html>

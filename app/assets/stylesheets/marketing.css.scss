@@ -1,3 +1,28 @@
 // Place all the styles related to the marketing controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#main-header {
+	font-size: 4.75em;
+	line-height: 53px;
+	color: white;
+}
+.front_contact {
+	color: white;
+	font-weight: bold;
+}
+
+.btn-marketing {
+  color: #5cb85c;
+  background-color: white;
+  border-color: white;
+}
+
+.btn-marketing:hover,
+.btn-marketing:focus,
+.btn-marketing:active,
+.btn-marketing.active,
+.open .dropdown-toggle.btn-warning {
+  color: white;
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+}
