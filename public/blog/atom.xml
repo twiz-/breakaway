@@ -4,21 +4,12 @@
  <title>BLOG_NAME</title>
  <link href="YOUR_URL/atom.xml" rel="self"/>
  <link href="YOUR_URL"/>
- <updated>2014-07-31T19:09:55-07:00</updated>
+ <updated>2014-08-21T20:18:20-07:00</updated>
  <id>BLOG_URL</id>
  <author>
    <name>BLOG_NAME</name>
  </author>
 
- 
- <entry>
-   <title>7/31-blue-v-flash</title>
-   <link href="YOUR_URL/7-31-blue-v-flash.html"/>
-   <updated>2014-07-31T00:00:00-07:00</updated>
-   <id>BLOG_URL/7-31-blue-v-flash</id>
-   <content type="html">&lt;p&gt;Highlights from the 7/31/14 Sky Blue FC flash Vs Western New York Flash game.&lt;/p&gt;
-</content>
- </entry>
  
  
 </feed>

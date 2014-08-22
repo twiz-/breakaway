@@ -1,9 +1,0 @@
----
-layout: post
-published: true
-title: 7/31-blue-v-flash
----
-Highlights from the 7/31/14 Sky Blue FC flash Vs Western New York Flash game. 
-
-<!-- The rest of this post manually edited in public/blog/:title -->
-
