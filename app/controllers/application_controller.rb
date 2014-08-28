@@ -13,10 +13,10 @@ class ApplicationController < ActionController::Base
   
   protected
   def devise_parameter_sanitizer
-    if resource_class == Player
-      PlayerParameterSanitizer.new(Player, :player, params)
-    elsif resource_class == Coach
-      CoachParameterSanitizer.new(Coach,:coach,params)
+    if resource_class == ClubPlayer
+      ClubPlayerParameterSanitizer.new(ClubPlayer, :club_player, params)
+    elsif resource_class == CollegeCoach
+      CollegeCoachParameterSanitizer.new(CollegeCoach, :college_coach, params)
     else
       super
     end    

@@ -1,22 +1,20 @@
 Breakaway::Application.routes.draw do
   
-  
-
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
   root to: "marketing#splash"
   
-  devise_for :players, :controllers => {:registrations => "players/registrations",
+  devise_for :club_players, :controllers => {:registrations => "players/registrations",
                                         :sessions => "players/sessions",
                                         :passwords => "players/passwords"} 
 
-  devise_for :coaches, :controllers => {:registrations => "coaches/registrations",
+  devise_for :college_coaches, :controllers => {:registrations => "coaches/registrations",
                                         :sessions => "coaches/sessions", 
                                         :passwords => "coaches/passwords"}
 
   get "profiles/show" 
-  get '/players', to: "profiles#index", as: 'players'                                         
+  get '/players', to: "profiles#index", as: 'club_players'
   get "dashboard/show"
   get "dashboard", to: "dashboard#show", as: 'dashboard'
   get 'friendships/:friend_id' => 'user_friendships#new', :as => :new_friendship

@@ -2,7 +2,7 @@ class Game < ActiveRecord::Base
   
   validates :location, :opponent, :scheduled_date, :scheduled_time, presence: true
   
-  belongs_to :player
+  belongs_to :club_player
   
   def self.to_csv(games)
     CSV.generate do |csv|

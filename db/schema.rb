@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728001410) do
+ActiveRecord::Schema.define(version: 20140828045433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,43 +49,7 @@ ActiveRecord::Schema.define(version: 20140728001410) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "coaches", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "games", force: true do |t|
-    t.date     "scheduled_date"
-    t.string   "opponent"
-    t.text     "location"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "player_id"
-    t.string   "scheduled_time"
-  end
-
-  create_table "listings", force: true do |t|
-    t.string   "video"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "player_id"
-  end
-
-  create_table "players", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_friendships", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "friend_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "users", force: true do |t|
+  create_table "club_players", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -98,21 +62,71 @@ ActiveRecord::Schema.define(version: 20140728001410) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "club_team"
-    t.integer  "grad_year"
-    t.string   "formation"
     t.string   "position"
     t.string   "profile_name"
+    t.integer  "grad_year"
+    t.string   "formation"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "club_players", ["confirmation_token"], name: "index_club_players_on_confirmation_token", unique: true, using: :btree
+  add_index "club_players", ["email"], name: "index_club_players_on_email", unique: true, using: :btree
+  add_index "club_players", ["reset_password_token"], name: "index_club_players_on_reset_password_token", unique: true, using: :btree
+
+  create_table "college_coaches", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "last_name"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+  end
+
+  add_index "college_coaches", ["confirmation_token"], name: "index_college_coaches_on_confirmation_token", unique: true, using: :btree
+  add_index "college_coaches", ["email"], name: "index_college_coaches_on_email", unique: true, using: :btree
+  add_index "college_coaches", ["reset_password_token"], name: "index_college_coaches_on_reset_password_token", unique: true, using: :btree
+
+  create_table "games", force: true do |t|
+    t.date     "scheduled_date"
+    t.string   "opponent"
+    t.text     "location"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "player_id"
+    t.string   "scheduled_time"
+    t.integer  "club_player_id"
+  end
+
+  create_table "listings", force: true do |t|
+    t.string   "video"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "player_id"
+    t.integer  "club_player_id"
+  end
+
+  create_table "user_friendships", force: true do |t|
+    t.integer  "college_coach_id"
+    t.integer  "friend_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

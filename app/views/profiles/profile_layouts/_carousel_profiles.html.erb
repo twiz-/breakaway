@@ -30,7 +30,7 @@
 		    
 		 </ul>
 		 <div class="center-it favorite-button">
-		  <% if coach_signed_in? && current_coach %>
+		  <% if college_coach_signed_in? && current_college_coach %>
 		    <%= link_to "Add as Favorite", new_friendship_path(friend_id: profile.profile_name), class: "btn btn btn-success" %>
 		  <% else %>
 		    <button data-toggle="modal" data-target=".signup-modal-sm" class="btn btn-success">Add as Favorite</button>

@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_player!, only: [:new, :edit, :create, :update, :destroy]
+  before_filter :authenticate_club_player!, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /listings
   # GET /listings.json
@@ -10,7 +10,7 @@ class ListingsController < ApplicationController
   
   # GET /listings/new
   def new
-    @listing = current_player.listings.new
+    @listing = current_club_player.listings.new
   end
 
   # GET /listings/1/edit
@@ -20,7 +20,7 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.json
   def create
-    @listing = current_player.listings.new(listing_params)
+    @listing = current_club_player.listings.new(listing_params)
 
     respond_to do |format|
       if @listing.save

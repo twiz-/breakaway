@@ -28,24 +28,24 @@
 				
 	        </li>
 	        <li>
-				<%= link_to "All Players", players_path %>
+				<%= link_to "All Players", club_players_path %>
 	        </li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
 			  
 	  	        <li>
-					<%= link_to "Sign out coach", destroy_coach_session_path, method: :delete if current_coach %>
-					<%= link_to "Sign out player", destroy_player_session_path, method: :delete if current_player %>
+					<%= link_to "Sign out coach", destroy_college_coach_session_path, method: :delete if current_college_coach %>
+					<%= link_to "Sign out player", destroy_club_player_session_path, method: :delete if current_club_player %>
 	  	        </li>
 		 	  <% else %>
 		        <li>
-					<%= link_to 'Player', new_player_session_path %>
+					<%= link_to 'Player', new_club_player_session_path %>
 		        </li>
 		        <li>
-		          <%= link_to 'Coach', new_coach_session_path %>
+		          <%= link_to 'Coach', new_college_coach_session_path %>
 		        </li>
 		        <li>
-					<%= link_to "All Players", players_path %>
+					<%= link_to "All Players", club_players_path %>
 		        </li>
 			<% end %>
 

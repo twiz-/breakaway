@@ -1,5 +1,5 @@
 
-<%= link_to "Add as favorite", new_friendship_path(friend_id: @player.profile_name), class: "btn btn-info btn-large" if current_user == current_coach %>
+<%= link_to "Add as favorite", new_friendship_path(friend_id: @player.profile_name), class: "btn btn-info btn-large" if current_user == current_college_coach %>
 	<br><br><br><br>
 <ul class="nav nav-tabs">
 	<li class="active"><a href="#video_listing" data-toggle="tab">My Videos</a></li>

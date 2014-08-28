@@ -12,7 +12,7 @@ class GamesController < ApplicationController
 
   # GET /games/new
   def new
-    @game = current_player.games.new
+    @game = current_club_player.games.new
   end
 
   # GET /games/1/edit
@@ -22,7 +22,7 @@ class GamesController < ApplicationController
   # POST /games
   # POST /games.json
   def create
-    @game = current_player.games.new(game_params)
+    @game = current_club_player.games.new(game_params)
 
     respond_to do |format|
       if @game.save
@@ -54,7 +54,7 @@ class GamesController < ApplicationController
   def destroy
     @game.destroy
     respond_to do |format|
-      format.html { redirect_to profile_path(current_player.profile_name) }
+      format.html { redirect_to profile_path(current_club_player.profile_name) }
       format.json { head :no_content }
     end
   end
@@ -71,10 +71,10 @@ class GamesController < ApplicationController
     end
     
     def check_permission
-        handle_no_access if current_player != @game.player
+        handle_no_access if current_club_player != @game.club_player
     end
     def player_can_play
-      redirect_to root_path, notice: "Sign in first my friend" unless current_player && player_signed_in?
+      redirect_to root_path, notice: "Sign in first my friend" unless current_club_player && club_player_signed_in?
     end
     def game_no_show
       logger.error "Tried to show a game that did not exist"

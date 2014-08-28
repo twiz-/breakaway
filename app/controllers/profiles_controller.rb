@@ -1,12 +1,11 @@
 class ProfilesController < ApplicationController
   def index
-    @search = Player.search(params[:q])
-    @profiles = @search.result
-    
-    
+    @search = ClubPlayer.search(params[:q])
+    @profiles = @search.result    
   end
+  
   def show
-    @player = Player.find_by_profile_name(params[:profile_name])
+    @player = ClubPlayer.find_by_profile_name(params[:profile_name])
     
     if @player
       @listings = @player.listings

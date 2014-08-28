@@ -1,4 +1,4 @@
-ActiveAdmin.register Coach do
+ActiveAdmin.register CollegeCoach do
 
   
   # See permitted parameters documentation:

@@ -1,11 +1,11 @@
 module ApplicationHelper
   
   def user_signed_in?
-    coach_signed_in? || player_signed_in?
+    college_coach_signed_in? || club_player_signed_in?
   end
   
   def current_user
-    current_coach || current_player
+    current_college_coach || current_club_player
   end
   def youtube_embed(youtube_url)
       if youtube_url[/youtu\.be\/([^\?]*)/]

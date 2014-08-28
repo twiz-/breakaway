@@ -1,7 +1,7 @@
 <%= link_to "Add a New Highlight Video", new_listing_path, class: "btn btn-success" %>
 <%= link_to "Add a New Game", new_game_path, class: "btn btn-success" %>
 <h1 class="page-header">Dashboard</h1> 
-<h5>What your profile looks like to coaches <%= link_to "Your Profile Path", profile_path(current_player.profile_name) %></h5>
+<h5>What your profile looks like to coaches <%= link_to "Your Profile Path", profile_path(current_club_player.profile_name) %></h5>
 <br><br>
 <ul class="nav nav-tabs">
 	<li class="active"><a href="#video_listing" data-toggle="tab">My Videos</a></li>

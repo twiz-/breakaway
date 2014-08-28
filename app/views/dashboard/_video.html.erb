@@ -6,7 +6,7 @@
 			  <div class="pull-right">
 				  <ul class="admin-dash-functions" style="text-align:right;">
 					 <li><%= listing.description %> </li>
-					 <li> <%= link_to "Remove", listing, method: :delete, data:{confirm: "This cannot be undone"} if current_player == listing.player %></li>
+					 <li> <%= link_to "Remove", listing, method: :delete, data:{confirm: "This cannot be undone"} if current_club_player == listing.club_player %></li>
 				  </ul>
 			  </div>
 		  </div> 
