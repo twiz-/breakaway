@@ -17,7 +17,8 @@
 
 .card-wrapper {
 	background:#EEF0F1; 
-	margin-left:15px;
+	
+	margin-bottom:30px;
 	border-radius: 5px;
 	border-bottom: 1px solid #a9a9a9;
 	border-left: 1px solid #a9a9a9;
@@ -26,4 +27,24 @@
 .favorite-button {
 	margin-top:10px;
 	margin-bottom:15px;
+}
+
+@media(max-width:767px){
+	.card-wrapper {
+	   margin-left:22px;
+	   	
+	}
+}
+
+@media(min-width:768px){
+	.card-wrapper {
+	   margin-left:45px;	
+	}
+	
+}
+
+@media(min-width:992px){
+	.card-wrapper {
+		margin-left:70px;	
+	}
 }
