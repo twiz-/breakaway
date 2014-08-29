@@ -1,22 +1,30 @@
+<h2 class="page-header"><%= @player.full_name %></h2>
 <div class="row">
-	 <ul style="list-style:none;">
-		<li><h3><%= @player.full_name %></h3></li>
-		<li><%= @player.position %> for <%= @player.club_team %></li>
-		<li><%= @player.grad_year %> graduate</li>
-	    <li><%= @player.formation %></li>
-		<br>
-		<li><%= link_to "Add as favorite", new_friendship_path(friend_id: @player.profile_name), class: "btn btn-info btn-large" if current_user == current_college_coach %></li>	    	    
-	 </ul>
-</div>
-
-	<br><br><br><br>
-<ul class="nav nav-tabs">
-	<li class="active"><a href="#video_listing" data-toggle="tab">My Videos</a></li>
-	<li><a href="#schedule_listing" data-toggle="tab">My Upcoming Game</a></li>
-</ul>
-<div class="tab-content">
-	<div class="tab-pane active" id="video_listing"><br><%= render 'video' %></div>
-	<div class="tab-pane" id="schedule_listing"><%= render 'schedule' %> </div>
+	<div class="col-md-2" id="left-player-col">
+   	 <ul style="list-style:none;">
+   		<li><%= @player.position %> for <%= @player.club_team %></li>
+   		<li><%= @player.grad_year %> graduate</li>
+   	    <li><%= @player.formation %></li>
+   		<br>
+   		<li><%= link_to "Add as favorite", new_friendship_path(friend_id: @player.profile_name), class: "btn btn-success btn-large" if current_user == current_college_coach %></li>	    	    
+   	 </ul>
+	</div>
+	<div class="col-md-10">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#video_listing" data-toggle="tab">My Videos</a></li>
+			<li><a href="#schedule_listing" data-toggle="tab">My Upcoming Game</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="video_listing">
+				<div class="row">
+				  <%= render 'video' %>
+			    </div>
+			</div>	
+			<div class="tab-pane" id="schedule_listing">
+				<%= render 'schedule' %> 
+			</div>
+		</div>
+    </div>
 </div>
 
 

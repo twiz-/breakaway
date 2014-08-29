@@ -1,10 +1,16 @@
-<div class="row">
-	<% @listings.each do |listing| %>
 
-	<div class="well col-xs-7 col-md-4">
-			<%= image_tag "http://i1.ytimg.com/vi/#{youtube_thumb_embed(listing.video)}/mqdefault.jpg", class: "thumb-town" %><br>
-			<%= listing.description %><br>
-			<strong><%= link_to "Watch This Video", listing.video, {class: "fancybox-media"} %></strong><br>
-	</div>	
+	<% @listings.each do |listing| %>
+		<div class="col-md-3 col-sm-5 col-xs-5 card-wrapper tab-element">
+			    <div class="center-it">
+				<%= image_tag "http://i1.ytimg.com/vi/#{youtube_thumb_embed(listing.video)}/mqdefault.jpg", class: " image-size-prof" %>
+			    </div>
+				<br>
+				<p><%= listing.description %></p>
+				<br>
+				<div class="center-it">
+					<%= link_to "Watch This Video", listing.video, {class: "btn btn-sm btn-info fancybox-media "} %>
+			    </div>
+				<br>
+		</div>	
 	<% end %>
-</div>
+
