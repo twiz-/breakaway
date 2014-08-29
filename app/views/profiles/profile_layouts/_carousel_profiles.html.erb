@@ -1,6 +1,6 @@
 <% @profiles.each do |profile| %>
   <% if profile.listings.count >= 1 %> 
-   <div class='col-md-3 col-sm-5 col-xs-5 card-wrapper'>
+   <div class='col-md-3 col-sm-5 col-xs-5 card-wrapper' id='<%= "player_#{profile.id}" %>'>
      <div class="row">
 		 <div id="carousel<%= profile.profile_name %>" data-interval="false" class="carousel slide" data-ride="carousel">
 		   <div class="carousel-inner" >
@@ -30,13 +30,35 @@
 		    
 		 </ul>
 		 <div class="center-it favorite-button">
-		  <% if college_coach_signed_in? && current_college_coach %>
-		    <%= link_to "Add as Favorite", new_friendship_path(friend_id: profile.profile_name), class: "btn btn btn-success" %>
+		  <% if current_college_coach %>
+		    <%= link_to "Add as Favorite", "#confirm-dialog", class: "modal-toggle btn btn btn-success", "data-toggle" => "modal", "data-modal-type" => "confirm", "data-player" => profile.full_name, "data-url" => user_friendships_path(friend_id: profile.id, format: :js) %>
+
 		  <% else %>
 		    <button data-toggle="modal" data-target=".signup-modal-sm" class="btn btn-success">Add as Favorite</button>
 		  <% end %> 
 	     </div>
      </div>
    </div>
+ 
   <% end %>	
 <% end %>
+
+<div id="confirm-dialog" class="modal">
+	 <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header">
+           <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+           <h3>Add player to your Watch List?</h3>
+        </div>
+        <div class="modal-body">
+           <p> Are you sure? You want to add <span class='player_name'></span>  to your Watch List?"   </p>
+        </div>
+        <div class="modal-footer">
+           <%= link_to 'Yeah Do it!', '#', "data-url" => '', class: "btn btn-success btn-sm confirm" %>
+         
+           <a href="#" data-dismiss="modal" aria-hidden="true" class="btn secondary btn-danger btn-sm">Oops Nevermind</a>
+        </div>
+      </div>
+   </div>
+</div>
+        

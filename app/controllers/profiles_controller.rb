@@ -1,6 +1,12 @@
 class ProfilesController < ApplicationController
   def index
-    @search = ClubPlayer.search(params[:q])
+    current_friend_ids = current_college_coach.friend_ids
+ 
+    unless current_friend_ids.blank?
+      @search = ClubPlayer.where("id NOT IN (?)", current_friend_ids).search(params[:q])
+    else
+      @search = ClubPlayer.search(params[:q])
+    end
     @profiles = @search.result    
   end
   
