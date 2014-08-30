@@ -31,10 +31,15 @@
 		 </ul>
 		 <div class="center-it favorite-button">
 		  <% if current_college_coach %>
-		    <%= link_to "Add as Favorite", "#confirm-dialog", class: "modal-toggle btn btn btn-success", "data-toggle" => "modal", "data-modal-type" => "confirm", "data-player" => profile.full_name, "data-url" => user_friendships_path(friend_id: profile.id, format: :js) %>
+		  <hr>
+		  <a id="profile-link" href="<%= profile_path(profile.profile_name)%>">view profile <i id="profile" class="fa fa-user"></i></a>
+		    <%= link_to "add favorite".html_safe + " " + content_tag(:i,nil, id: "heart", :class=>"fa fa-heart-o"), "#confirm-dialog", id: "profile-link",class: "modal-toggle", "data-toggle" => "modal", "data-modal-type" => "confirm", "data-player" => profile.full_name, "data-url" => user_friendships_path(friend_id: profile.id, format: :js) %>
 
 		  <% else %>
-		    <button data-toggle="modal" data-target=".signup-modal-sm" class="btn btn-success">Add as Favorite</button>
+		  <hr>
+		   <a id="profile-link" href="<%= profile_path(profile.profile_name)%>">view profile <i id="profile" class="fa fa-user"></i></a>
+		<a id="favorite-link" data-toggle="modal" data-target=".signup-modal-sm" class="btn btn-link">add favorite <i id="heart" class="fa fa-heart-o"></i>
+</a>
 		  <% end %> 
 	     </div>
      </div>
