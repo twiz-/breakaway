@@ -33,7 +33,7 @@
 		  <% if current_college_coach %>
 		  <hr>
 		  <a id="profile-link" href="<%= profile_path(profile.profile_name)%>">view profile <i id="profile" class="fa fa-user"></i></a>
-		    <%= link_to "add favorite".html_safe + " " + content_tag(:i,nil, id: "heart", :class=>"fa fa-heart-o"), "#confirm-dialog", id: "profile-link",class: "modal-toggle", "data-toggle" => "modal", "data-modal-type" => "confirm", "data-player" => profile.full_name, "data-url" => user_friendships_path(friend_id: profile.id, format: :js) %>
+		    <%= link_to "add favorite".html_safe + " " + content_tag(:i,nil, id: "heart", :class=>"fa fa-heart-o"), "#confirm-dialog", id: "profile-link",class: "btn btn-link modal-toggle", "data-toggle" => "modal", "data-modal-type" => "confirm", "data-player" => profile.full_name, "data-url" => user_friendships_path(friend_id: profile.id, format: :js) %>
 
 		  <% else %>
 		  <hr>

@@ -1,16 +1,15 @@
-
+<div id="equal_height">
 	<% @listings.each do |listing| %>
-		<div class="col-md-3 col-sm-5 col-xs-5 card-wrapper tab-element">
-			    <div class="center-it">
+		<div class="col-md-3 col-sm-5 col-xs-5 tab-element">
+		    <div>
 				<%= image_tag "http://i1.ytimg.com/vi/#{youtube_thumb_embed(listing.video)}/mqdefault.jpg", class: " image-size-prof" %>
-			    </div>
-				<br>
+				<br><br>
+				<i id="camera" class="fa fa-video-camera"></i> 				
+				<%= link_to "view this video", listing.video, {id: "video-link", class: "fancybox-media "} %>
+				<br><br>
 				<p><%= listing.description %></p>
-				<br>
-				<div class="center-it">
-					<%= link_to "Watch This Video", listing.video, {class: "btn btn-sm btn-info fancybox-media "} %>
-			    </div>
-				<br>
+				
+		    </div>
 		</div>	
 	<% end %>
-
+</div>
