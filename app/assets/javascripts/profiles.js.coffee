@@ -20,13 +20,15 @@ $ ->
     player_name = $(e.relatedTarget).data("player")
     $(e.currentTarget).find(".player_name").html( player_name )
     $(e.currentTarget).find(".confirm").attr('data-url', url);
+    console.log($(e.currentTarget).find(".confirm").attr('data-url'))
     return
-    
-  $('.confirm').click ->
-	  event.preventDefault()
+  
+  $("#confirm-dialog").on "click", ".confirm", (e) ->
+	  e.preventDefault()
 	  $.ajax
       type: 'POST'
-      url: $(this).data('url')
+      url: $(this).attr("data-url")
+      cache: false
     return
     
 	

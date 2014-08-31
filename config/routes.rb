@@ -17,6 +17,8 @@ Breakaway::Application.routes.draw do
   get '/players', to: "profiles#index", as: 'club_players'
   get "dashboard/show"
   get "dashboard", to: "dashboard#show", as: 'dashboard'
+  get "/dashboard/download_schedule", to: "dashboard#download_schedule", as: "download_schedule" #, format: 'csv'
+  
   get 'friendships/:friend_id' => 'user_friendships#new', :as => :new_friendship
 
   get '/:profile_name', to: "profiles#show", as: 'profile'

@@ -14,6 +14,7 @@
                <li> <%= profile.grad_year %> graduate</li>
 	  		   <li><%= profile.formation %></li>
 	  		   <li><%= link_to "View #{profile.first_name}'s Profile", profile_path(profile.profile_name) %></li>
+	  		   <li><%= link_to "Remove from watchlist", user_friendship_path(current_college_coach.friendship(profile)), method: :delete, data: { confirm: "Are you certain you want remove #{profile.full_name} from watchlist?" } %></li>
 			 </div>
        									
 	<% end %>

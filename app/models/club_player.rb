@@ -4,7 +4,7 @@ class ClubPlayer < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
          
-  has_many :user_friendships
+  has_many :user_friendships, foreign_key: :friend_id
   has_many :friends, through: :user_friendships       
   
   validates :first_name, :last_name, :profile_name, :grad_year, :position, :club_team, :formation, presence: :true
@@ -20,4 +20,5 @@ class ClubPlayer < ActiveRecord::Base
   def full_name
     self.first_name + "  " + self.last_name
   end
+  
 end

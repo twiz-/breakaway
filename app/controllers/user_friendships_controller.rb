@@ -21,6 +21,13 @@ class UserFriendshipsController < ApplicationController
     end
   end
   
+  def destroy
+    friend_ship = UserFriendship.find(params[:id])
+    friend_ship.destroy
+    flash[:notice] = "Successfully removed from the watchlist."
+    redirect_to dashboard_path
+  end
+  
 =begin
   def create
     # can create a before filter here to move logic out of the view to make sure current_user_coach_and_signed_in

@@ -1,7 +1,8 @@
 <% if @success %>
-  $('.alert').html('<div class="alert alert-success" role="alert"> <%="#{@friend.first_name} is now on your favorites list" %> </div>')
+  $('.alert').html('<div class="alert alert-success" role="alert"> <%="#{@friend.full_name} is now on your favorites list" %> </div>')
   $('#player_' + '<%= @friend.id %>').remove();
   $('#confirm-dialog').modal('hide')
+  $('.add_favorite_link').remove();
 <% else %>
   $('.alert').html('<div class="alert alert-warning" role="alert"> Some thing went wrong. Please try again!. </div>')
 <% end %>

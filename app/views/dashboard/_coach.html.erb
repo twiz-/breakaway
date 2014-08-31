@@ -16,7 +16,10 @@
 
 	</div>
 	<div class="tab-pane" id="schedule_listing">
-		<br >
+		<br />
+		<%= link_to "Download Schedule", download_schedule_path(format: :csv) %>
+		<br />
+		<br />
 	 	<table class="table table-hover">
 			<th>Team</th>
 			<th>Player</th>
@@ -24,17 +27,15 @@
 	 		<th>Opponent</th>
 	 		<th>Date</th>
 	 		<th>Game Time</th>
-		<% @profiles.each do |player| %>
-		 <% player.games.each do |game| %>
-		 		<tr>
-					<td><%= player.club_team %></td>
-					<td><%= player.full_name %></td>			 			
-		 			<td> <%= game.location %></td>
-		 			<td> <%= game.opponent %></td>
-					<td><%= game.scheduled_time %></td>
-					<td><%= game.scheduled_date %></td>
-		 		</tr>		 
-		 <% end %>
+		<% @favorite_games.each do |game| %>
+		  <tr>
+		  	<td><%= game.club_player.club_team %></td>
+			  <td><%= game.club_player.full_name %></td>			 			
+		 	  <td> <%= game.location %></td>
+		  	<td> <%= game.opponent %></td>
+			  <td><%= game.scheduled_time %></td>
+			  <td><%= game.scheduled_date %></td>
+		 </tr>		 
 		<% end %>
 		</table>
 	</div>

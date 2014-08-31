@@ -33,7 +33,7 @@
 		  <% if current_college_coach %>
 		  <hr>
 		  <a id="profile-link" href="<%= profile_path(profile.profile_name)%>">view profile <i id="profile" class="fa fa-user"></i></a>
-		    <%= link_to "add favorite".html_safe + " " + content_tag(:i,nil, id: "heart", :class=>"fa fa-heart-o"), "#confirm-dialog", id: "profile-link",class: "btn btn-link modal-toggle", "data-toggle" => "modal", "data-modal-type" => "confirm", "data-player" => profile.full_name, "data-url" => user_friendships_path(friend_id: profile.id, format: :js) %>
+		    <%= link_to "add favorite".html_safe + " " + content_tag(:i, nil, id: "heart", :class=>"fa fa-heart-o"), "#confirm-dialog", id: "profile-link",class: "btn btn-link modal-toggle", "data-toggle" => "modal", "data-modal-type" => "confirm", "data-player" => profile.full_name, "data-url" => user_friendships_path(friend_id: profile.id, format: :js) %>
 
 		  <% else %>
 		  <hr>
@@ -48,22 +48,5 @@
   <% end %>	
 <% end %>
 
-<div id="confirm-dialog" class="modal">
-	 <div class="modal-dialog">
-     <div class="modal-content">
-        <div class="modal-header">
-           <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
-           <h3>Add player to your Watch List?</h3>
-        </div>
-        <div class="modal-body">
-           <p> Are you sure? You want to add <span class='player_name'></span>  to your Watch List?"   </p>
-        </div>
-        <div class="modal-footer">
-           <%= link_to 'Yeah Do it!', '#', "data-url" => '', class: "btn btn-success btn-sm confirm" %>
-         
-           <a href="#" data-dismiss="modal" aria-hidden="true" class="btn secondary btn-danger btn-sm">Oops Nevermind</a>
-        </div>
-      </div>
-   </div>
-</div>
+<%= render 'profiles/profile_layouts/confirm_modal' %>
         

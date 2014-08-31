@@ -17,8 +17,8 @@ class ProfilesController < ApplicationController
       @listings = @player.listings
       @games = @player.games
       respond_to do |format|
-          format.html
-          format.csv {send_data Game.to_csv(@games)}
+        format.html
+        format.csv {send_data Game.to_csv(@games)}
       end
       return
       render action: :show
