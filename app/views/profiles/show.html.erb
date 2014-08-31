@@ -6,11 +6,15 @@
    		<li><%= @player.grad_year %> graduate</li>
    	    <li><%= @player.formation %></li>
    		<br>
-   		<% unless current_college_coach.friend_already?(@player) %>
-   		  <li class="add_favorite_link"><%= link_to "add favorite <i class='fa fa-heart-o' id='heart'></i>".html_safe, "#confirm-dialog", id: "profile-link",class: "btn btn-link modal-toggle", "data-toggle" => "modal", "data-modal-type" => "confirm", "data-player" => @player.full_name, "data-url" => user_friendships_path(friend_id: @player.id, format: :js) %></li>
-   		<% else %>
-   		  <li><%= link_to "Remove from watchlist", user_friendship_path(current_college_coach.friendship(@player)), method: :delete, data: { confirm: "Are you certain you want remove #{@player.full_name} from watchlist?" } %></li>
-   		<% end %>
+		<% if current_college_coach %>
+			<% unless current_college_coach.friend_already?(@player) %>
+			  <li class="add_favorite_link"><%= link_to "add favorite <i class='fa fa-heart-o' id='heart'></i>".html_safe, "#confirm-dialog", id: "profile-link",class: "btn btn-link modal-toggle", "data-toggle" => "modal", "data-modal-type" => "confirm", "data-player" => @player.full_name, "data-url" => user_friendships_path(friend_id: @player.id, format: :js) %></li>
+			<% else %>
+			  <li><%= link_to "Remove from watchlist", user_friendship_path(current_college_coach.friendship(@player)), method: :delete, data: { confirm: "Are you certain you want remove #{@player.full_name} from watchlist?" } %></li>
+			<% end %>
+		<% else %>	
+			<a id="favorite-link" data-toggle="modal" data-target=".signup-modal-sm" class="btn btn-info">add favorite</a>
+		<% end %>
    		      
    	 </ul>
 	</div>
@@ -33,4 +37,4 @@
 </div>
 
 <%= render 'profiles/profile_layouts/confirm_modal' %>
-
+<%= render "profiles/profile_layouts/signup_modal" %>
