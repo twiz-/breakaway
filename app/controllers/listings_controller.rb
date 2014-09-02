@@ -65,7 +65,7 @@ class ListingsController < ApplicationController
   
   def check_listing_total
     if current_club_player.listings.count == 3
-      redirect_to dashboard_path, alert: "You're currently only able to 3 uploaded videos at this time, check the blog for updates."
+      redirect_to dashboard_path, alert: "You're currently only able to 3 uploaded videos at this time, check the <a href='http://www.54footy.com/blog'>Blog</a> for updates."
     end
   end
     # Use callbacks to share common setup or constraints between actions.

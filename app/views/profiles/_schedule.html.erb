@@ -4,7 +4,9 @@
 	<th>Game Time</th>
 	<th>Location</th>
 	<th>Opponent</th>
-<%= link_to "Download my Schedule", profile_path(format: 'csv')%>
+<%= link_to '<i class="fa fa-download"></i> Download my schedule'.html_safe, profile_path(format: 'csv'), id: "video-link"%>
+<br>
+<br>
 <% @games.each do |game| %>
 		<tr>
 			<td><%= game.scheduled_date %></td>

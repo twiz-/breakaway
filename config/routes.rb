@@ -4,6 +4,7 @@ Breakaway::Application.routes.draw do
   ActiveAdmin.routes(self)
   
   root to: "marketing#splash"
+  get '/about', to: 'marketing#about'
   
   devise_for :club_players, :controllers => {:registrations => "players/registrations",
                                         :sessions => "players/sessions",
