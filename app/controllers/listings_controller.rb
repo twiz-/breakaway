@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_club_player!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :check_listing_total, only: [:create]
 
   # GET /listings
   # GET /listings.json
@@ -61,6 +62,12 @@ class ListingsController < ApplicationController
   end
 
   private
+  
+  def check_listing_total
+    if current_club_player.listings.count == 3
+      redirect_to dashboard_path, alert: "You're currently only able to 3 uploaded videos at this time, check the blog for updates."
+    end
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
       @listing = Listing.find(params[:id])
