@@ -2,13 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
+body, {
 	font-family: 'Open Sans', sans-serif;
 }
-#main-header {
-	font-size: 4.75em;
-	line-height: 53px;
-	color: white;
+#main-headline {
+	font-size: 3.10em;
+	line-height: 45px;
+	
 }
 .front_contact {
 	color: white;
@@ -29,4 +29,15 @@ body {
   color: white;
   background-color: #5cb85c;
   border-color: #5cb85c;
+}
+
+#player-feature-signup {
+	letter-spacing: .5px;
+	padding-top: 5px;
+}
+.feature-link {
+	color: white;
+}
+.feature-link {
+	
 }
