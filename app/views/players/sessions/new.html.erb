@@ -1,17 +1,30 @@
-<h2>Sign in Player</h2>
+<br>
+<br>
+<div class="row">
+	<div class="col-md-4 col-md-offset-4 well-forms">
+		<h4><i class="fa fa-futbol-o"></i> Sign in as a player </h4>
+		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+		  <div class="form-group">
+			  <%= f.label :email %>
+		      <%= f.email_field :email, :autofocus => true, class: "form-control" %>
+		  </div>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+		  <div class="form-group">
+			  <%= f.label :password %>
+		  	  <%= f.password_field :password, class: "form-control" %>
+		  </div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+		  <% if devise_mapping.rememberable? -%>
+		    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+		  <% end -%>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+		  <div>
+			  <%= f.button "Sign in",class: "btn btn-success btn-lg btn-block"  %>
+		  </div>
+		<% end %>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+		<small><%= render "players/shared/links" %></small>
+				
+	</div>
+</div>
 
-<%= render "players/shared/links" %>
