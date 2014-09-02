@@ -1,38 +1,78 @@
-<h2>Sign up Player</h2>
+<div class="row">
+	<div class="col-md-12" style="text-align:center;">
+		<h1>Start getting recruited today without leaving your house, </h1>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-md-4 well-forms">
+		<h3>Sign up and show off to your dream school every weekend</h3>
+		<br>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+		  <%= devise_error_messages! %>
   
-  <div><%= f.label :first_name %><br />
-  <%= f.text_field :first_name %></div>
-  <div><%= f.label :last_name %><br />
-  <%= f.text_field :last_name %></div>
-  <div><%= f.label :current_club %><br />
-  <%= f.text_field :club_team %></div>
-  <div><%= f.label :position %><br />
-  	<%= f.radio_button(:position, "Striker") %> Striker
-	<%= f.radio_button(:position, "Midfielder") %> Midefielder
-	<%= f.radio_button(:position, "Defender") %> Defender
-  </div>
+		  <div class="form-group">
+			  <%= f.label :first_name, autofocus: true %>
+		  	  <%= f.text_field :first_name, class: "form-control" %>
+	      </div>
+		  <div class="form-group">
+			  <%= f.label :last_name %>
+		       <%= f.text_field :last_name, class: "form-control"  %>
+	     </div>
+		  <div class="form-group">
+			  <%= f.label :current_club %>
+		  	  <%= f.text_field :club_team, class: "form-control"  %>
+		  </div>
+		  
+		  <label>Position you're best at</label>
+		  <div class="radio">
+		  	<label>Striker<%= f.radio_button(:position, "Striker") %> </label>
+		  </div>
+		  <div class="radio">
+		  	<label>Midefielder<%= f.radio_button(:position, "Midfielder") %> </label>
+		  </div>
+		  <div class="radio">
+		  	<label>Defender<%= f.radio_button(:position, "Defender") %> </label>
+		  </div>
+		  <div class="form-group">
+			  <%= f.label :profile_name %>
+		      <%= f.text_field :profile_name, class: "form-control" %>
+	      </div>
   
-  <div><%= f.label :profile_name %><br />
-  <%= f.text_field :profile_name %></div>
-  
-  <div><%= f.label :graduation_year %><br />
-  <%= f.select :grad_year, (Time.now.year..Time.now.year + 5) %></div>
-  <div><%= f.label :formation %><br />
-  <%= f.select(:formation,[["4-4-2"],["4-3-3"],["3-4-3"],["4-5-1"]]) %></div>
+		  <div class="form-group">
+			  <label>What year do you graduate?</label>
+		  	  <%= f.select( :grad_year, (Time.now.year..Time.now.year + 5), {}, { class: "form-control"}) %>
+		  </div>
+		  
+		  <div class="form-group">
+			  <%= f.label :formation %><br />
+		      <%= f.select(:formation,[["4-4-2"],["4-3-3"],["3-4-3"],["4-5-1"]], {},{ class: "form-control"} ) %>
+	      </div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+		  <div class="form-group">
+			  <%= f.label :email %>
+		      <%= f.email_field :email, class: "form-control" %>
+		  </div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+		  <div class="form-group">
+			  <%= f.label :password %>
+		      <%= f.password_field :password, class: "form-control" %>
+	     </div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+		  <div class="form-group">
+			  <%= f.label :password_confirmation %>
+		 	  <%= f.password_field :password_confirmation, class: "form-control" %>
+		  </div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+		  <div><%= f.button "Start Getting Recruited", class: "btn btn-success btn-lg btn-block" %></div>
+		<% end %>
+		<br>
+		<small><%= render "players/shared/links" %></small>
+	</div>
+	<div class="col-md-offset-1 col-md-6">
+		<h1>"I love just spedning a Sunday morning looking for leads on players I think are good"<br>
+		<small>- James Thunder</small></h1>
+	</div>
+</div>
 
-<%= render "players/shared/links" %>
