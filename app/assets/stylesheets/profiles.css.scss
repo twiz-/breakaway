@@ -81,7 +81,6 @@
 }
 
 #camera {
-	color: green;
 	font-size: 1.25em;
 	
 }
@@ -90,10 +89,12 @@
 }
 
 #video-link {
-	color: #5c5c5c;
-	font-size: 1.05em;
+	color: black;
+	
+	text-decoration:underline;
 }
 
 #video-link:hover {
-		color: black;
+		color: #5c5c5c;
+		text-decoration:none;
 }
