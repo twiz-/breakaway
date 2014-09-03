@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140828045433) do
+ActiveRecord::Schema.define(version: 20140829070919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -122,11 +122,16 @@ ActiveRecord::Schema.define(version: 20140828045433) do
     t.integer  "club_player_id"
   end
 
+  add_index "listings", ["club_player_id"], name: "index_listings_on_club_player_id", using: :btree
+
   create_table "user_friendships", force: true do |t|
     t.integer  "college_coach_id"
     t.integer  "friend_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "user_friendships", ["college_coach_id"], name: "index_user_friendships_on_college_coach_id", using: :btree
+  add_index "user_friendships", ["friend_id"], name: "index_user_friendships_on_friend_id", using: :btree
 
 end
