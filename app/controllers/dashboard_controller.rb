@@ -1,5 +1,6 @@
 class DashboardController < ApplicationController
   before_filter :check_coach_or_player
+  before_filter :authenticate_club_player!, only: [:upgrade]
   
   def upgrade
     

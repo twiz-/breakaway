@@ -1,5 +1,7 @@
 class ChargesController < ApplicationController
   
+  before_filter :authenticate_club_player!
+  
   def new
     
   end
