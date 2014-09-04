@@ -13,7 +13,8 @@ Breakaway::Application.routes.draw do
   devise_for :college_coaches, :controllers => {:registrations => "coaches/registrations",
                                         :sessions => "coaches/sessions", 
                                         :passwords => "coaches/passwords"}
-
+                                        
+  
   get "profiles/show" 
   get '/upgrade', to: 'dashboard#upgrade'
   get '/players', to: "profiles#index", as: 'club_players'
@@ -25,6 +26,7 @@ Breakaway::Application.routes.draw do
 
   get '/:profile_name', to: "profiles#show", as: 'profile'
   
+  resources :charges
   resources :games
   resources :listings, except: :show
   resources :user_friendships

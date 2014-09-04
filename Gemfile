@@ -21,6 +21,9 @@ gem 'bloggy'
 # search
 gem 'ransack'
 
+# billing with stripe
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 # mailer
 gem 'postmark-rails'
 
