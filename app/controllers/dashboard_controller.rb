@@ -1,6 +1,10 @@
 class DashboardController < ApplicationController
   before_filter :check_coach_or_player
   
+  def upgrade
+    
+  end
+  
   def show
     if current_college_coach
        @profiles = current_college_coach.friends
@@ -17,6 +21,7 @@ class DashboardController < ApplicationController
   end
   
   private 
+  
   def check_coach_or_player
     if current_college_coach
       :authenticate_college_coach!
@@ -26,6 +31,5 @@ class DashboardController < ApplicationController
       redirect_to root_path, notice: "Must be signed in to do that"
     end
   end
-  
- 
+   
 end

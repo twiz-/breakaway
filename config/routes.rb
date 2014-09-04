@@ -15,6 +15,7 @@ Breakaway::Application.routes.draw do
                                         :passwords => "coaches/passwords"}
 
   get "profiles/show" 
+  get '/upgrade', to: 'dashboard#upgrade'
   get '/players', to: "profiles#index", as: 'club_players'
   get "dashboard/show"
   get "dashboard", to: "dashboard#show", as: 'dashboard'

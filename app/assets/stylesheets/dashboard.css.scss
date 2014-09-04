@@ -17,3 +17,38 @@
 	text-align: right;
 	list-style:none;
 }
+
+.col-md-upgrade-custom {
+	margin-left: 12.666666666666664%;
+}
+
+@media (max-width: 992px){
+	.col-md-upgrade-custom{
+	  margin-left: 0px;
+	}	
+}
+.well-other-soccer-expenses {
+	opacity: .4;
+	height:205px; 
+	text-align:center;
+	min-height: 20px;
+	padding: 19px;
+	margin-bottom: 20px;
+	background-color: white;
+	border: 1px solid #262626;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);        
+}
+.well-upgrade {
+	height:205px; 
+	text-align:center;
+	min-height: 20px;
+	padding: 19px;
+	margin-bottom: 20px;
+	background-color: white;
+	border: 2px solid #980300;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);        
+}

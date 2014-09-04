@@ -33,11 +33,12 @@
 	        </li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
-			  
+				<li><%= link_to "Upgrade", upgrade_path if current_club_player %></li>			  
 	  	        <li>
 					<%= link_to "Sign out coach", destroy_college_coach_session_path, method: :delete if current_college_coach %>
-					<%= link_to "Sign out player", destroy_club_player_session_path, method: :delete if current_club_player %>
+					<%= link_to "Sign out player", destroy_club_player_session_path, method: :delete if current_club_player %>					
 	  	        </li>
+				
 		 	  <% else %>
 		        <li>
 					<%= link_to 'Player', new_club_player_session_path %>
