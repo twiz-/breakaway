@@ -17,8 +17,14 @@ class ClubPlayer < ActiveRecord::Base
   has_many :listings
   has_many :games
   
+  has_one :subscription
+  
   def full_name
     self.first_name + "  " + self.last_name
+  end
+  
+  def subscribed?
+    !subscription.blank?
   end
   
 end
