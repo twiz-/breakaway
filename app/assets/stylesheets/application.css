@@ -57,3 +57,6 @@ footer ul li {
   float: left;
   margin-left: 10px;
 }
+.delete-account {
+	font-color: red;
+}

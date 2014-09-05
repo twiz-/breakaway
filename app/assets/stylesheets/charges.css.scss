@@ -1,3 +1,18 @@
 // Place all the styles related to the charges controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.new-charge-wrapper{
+	margin-top: 55px;
+}
+
+.well-payment-form {
+	min-height: 20px;
+	padding: 19px;
+	margin-bottom: 20px;
+	background-color: #eaffff;
+	border: 1px solid #5bc0de;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);        
+}

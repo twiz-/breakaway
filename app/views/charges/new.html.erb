@@ -1,19 +1,25 @@
 <div class="row new-charge-wrapper">
 	<div class="col-md-4">
-		<h4>Summary of what you're getting</h4>
+		<h4>Heres what you'll be getting</h4>
 		<ul>
 			<li>Add as many video highlights as you want</li>
 			<li>Custom link to track clicks to your profile</li>
 			<li>Increased exposure to college coaches around the entire country</li>
-			<hr>
-			 <p><strong>Total: $170/Year</strong></p>
-			<hr>
+			<br>
+			<div style="border-top:1px solid rgba(91,192,222,.3);border-bottom:1px solid rgba(91,192,222,.3);">
+			 <h4><strong>Total: $170/Year</strong></h4>
+			</div>
+			
 		</ul>
 	</div>
-	<div class="col-md-6 col-md-offset-1 well">
-		<h4 style="margin-top:0px;">Enter payment information and get back to posting highlights</h4>
+	<div class="col-md-6 col-md-offset-1 well-payment-form">
+		
+		<h4 style="margin-top:0px;">Add payment information and get back to posting highlights</h4>
+		<br>
 		<div class='row'>
 			<div class="col-md-6">
+				<p>Click the button below to finish payment.</p>
+				<br>			
 				<%= form_tag charges_path do %>
 
 
@@ -28,12 +34,24 @@
 						  data-zip-code="true"></script>
 				<% end %>
 			</div>
-			<div class="col-md-6">
-				<p>Your card will be charged once immediately after entering payment information. In 360 days we'll send you a notice that your next payment is coming up. Cancel anytime.</p>
-			</div>
-			
-		</div>	
-		
-	</div>
+			<div class="col-md-6" style="border-left: solid 1px #5bc0de;">
+				<p>Your card will be charged once immediately after entering payment information. On <strong><%= subscription_helper %> </strong>we'll send you a notice that your next payment is coming up. Cancel anytime.</p>
+			</div>			
+		</div>			
+	</div>	
 </div>
+<div class="row">
+	<div class="col-md-offset-5 col-md-6">
+		<div class="row">
+			<div class="col-md-1">
+					<img src="https://s3-us-west-2.amazonaws.com/fiftyfourfooty/solid12.png" />
+			</div>
+			<div class="col-md-11">
+				<p>Your credit card information is never stored on our servers. We power payments through <a href="https://stripe.com/" target="_blank">stripe</a> which uses the same encryption technology as banks. </p>
+			</div>
+		</div>
+	  
+    </div>
+</div>
+
 

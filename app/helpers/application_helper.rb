@@ -1,4 +1,9 @@
 module ApplicationHelper
+
+  
+  def return_edit_account_path(user)
+    user == current_club_player ? edit_club_player_registration_path : edit_college_coach_registration_path
+  end
   
   def user_signed_in?
     college_coach_signed_in? || club_player_signed_in?
