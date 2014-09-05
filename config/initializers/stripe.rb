@@ -4,3 +4,5 @@ Rails.configuration.stripe = {
 }
 
 Stripe.api_key = Rails.configuration.stripe[:secret_key]
+
+REGISTRATION_AMOUNT = 170 * 100

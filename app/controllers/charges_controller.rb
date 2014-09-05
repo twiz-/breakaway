@@ -6,22 +6,14 @@ class ChargesController < ApplicationController
     
   end
   
-  def create
-    
-    #in cents
-    @amount = 17000
-    
+  def create        
     customer = Stripe::Customer.create(
     :email => current_club_player.email,
     :card => params[:stripeToken]    
     )
     
-    charge = Stripe::Charge.create(
-    :customer => customer.id, 
-    :amount => @amount,
-    :description => "54footy 3+ video customer",
-    :currency => 'usd'
-    )
+    new_customer_subscription = Stripe::Customer.retrieve(customer.id)
+    new_customer_subscription.subscriptions.create(:plan => "a32a5b2ec70410bfe2")
     
     rescue Stripe::CardError => e
       flash[:error] = e.message

@@ -1,17 +1,39 @@
-<%= form_tag charges_path do %>
-  <article>
-    <label class="amount">
-      <span>Start my annual subscription: $170.00</span>
-    </label>
-  </article>
+<div class="row new-charge-wrapper">
+	<div class="col-md-4">
+		<h4>Summary of what you're getting</h4>
+		<ul>
+			<li>Add as many video highlights as you want</li>
+			<li>Custom link to track clicks to your profile</li>
+			<li>Increased exposure to college coaches around the entire country</li>
+			<hr>
+			 <p><strong>Total: $170/Year</strong></p>
+			<hr>
+		</ul>
+	</div>
+	<div class="col-md-6 col-md-offset-1 well">
+		<h4 style="margin-top:0px;">Enter payment information and get back to posting highlights</h4>
+		<div class='row'>
+			<div class="col-md-6">
+				<%= form_tag charges_path do %>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="$170/year subscription to 54footy"
-          data-amount="17000"
-		  data-image="http://placehold.it/10x10"
-		  data-name="54footy"
-		  data-email="<%= current_club_player.email %>"
-		  data-label="Start my 54footy subscription"
-		  data-zip-code="true"></script>
-<% end %>
+
+				  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+				          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+				          data-description="$170/year subscription to 54footy"
+				          data-amount="17000"
+						  data-image="http://placehold.it/10x10"
+						  data-name="54footy"
+						  data-email="<%= current_club_player.email %>"
+						  data-label="Start my 54footy subscription"
+						  data-zip-code="true"></script>
+				<% end %>
+			</div>
+			<div class="col-md-6">
+				<p>Your card will be charged once immediately after entering payment information. In 360 days we'll send you a notice that your next payment is coming up. Cancel anytime.</p>
+			</div>
+			
+		</div>	
+		
+	</div>
+</div>
+
