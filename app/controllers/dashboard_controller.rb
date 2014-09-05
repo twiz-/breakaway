@@ -21,6 +21,14 @@ class DashboardController < ApplicationController
     send_data Game.to_csv(current_college_coach.future_favorite_games)
   end
   
+  def cancel_subscription
+    user = Stripe::Customer.retrieve(current_club_player.subscription.stripe_customer_id)
+    plan = user.subscriptions["data"].first["id"]
+    user.subscriptions.retrieve(plan).delete
+    current_club_player.subscription.destroy
+    redirect_to dashboard_path, notice: "You subscription has been cancelled"
+  end
+  
   private 
   
   def check_coach_or_player

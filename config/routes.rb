@@ -25,6 +25,8 @@ Breakaway::Application.routes.draw do
   get 'friendships/:friend_id' => 'user_friendships#new', :as => :new_friendship
 
   get '/:profile_name', to: "profiles#show", as: 'profile'
+
+  patch '/cancel_subscription', to: 'dashboard#cancel_subscription'
   
   resources :charges
   resources :games

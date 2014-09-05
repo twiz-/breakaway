@@ -35,7 +35,7 @@
 						<% if current_club_player.subscribed? %>
 							<p>You have already paid for your yearly 
 								subscription and your next pmt is on<br><strong> <%= (current_club_player.subscription.created_at + 1.year).strftime("%A %B %e, %Y")%> </strong></p>
-								<a href="#">cancel my subscription</a>
+								<%= link_to "cancel subscription", cancel_subscription_path, method: :patch %>
 							
 						<% else %>
 					 		<p>Wanting to add more highlight videos and track profile views?</p>
