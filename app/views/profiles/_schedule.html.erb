@@ -4,7 +4,11 @@
 	<th>Game Time</th>
 	<th>Location</th>
 	<th>Opponent</th>
-<%= link_to '<i class="fa fa-download"></i> Download my schedule'.html_safe, profile_path(format: 'csv'), id: "video-link"%>
+	<% if current_college_coach || current_club_player %>
+		<%= link_to '<i class="fa fa-download"></i> Download my schedule'.html_safe, profile_path(format: 'csv'), id: "video-link" %>
+	<% else %>	
+		<a id="video-link" data-toggle="modal" data-target=".signup-modal-sm"><i class="fa fa-download"></i> Download my schedule</a>
+	<% end %>
 <br>
 <br>
 <% @games.each do |game| %>
@@ -16,3 +20,5 @@
 		</tr>
 <% end %>	
 </table>
+
+<%= render 'profiles/profile_layouts/confirm_modal' %>
