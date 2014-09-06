@@ -1,6 +1,10 @@
 class ClubPlayer < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # , :lockable, :timeoutable and :omniauthable
+  
+  after_destroy do |club_player|
+    club_player.cancel_subscription_plan if club_player.subscribed?
+  end
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
          
@@ -25,6 +29,13 @@ class ClubPlayer < ActiveRecord::Base
   
   def subscribed?
     !subscription.blank?
+  end
+  
+  def cancel_subscription_plan
+    user = Stripe::Customer.retrieve(self.subscription.stripe_customer_id)
+    plan = user.subscriptions["data"].first["id"]
+    user.subscriptions.retrieve(plan).delete
+    self.subscription.destroy
   end
   
 end

@@ -22,10 +22,7 @@ class DashboardController < ApplicationController
   end
   
   def cancel_subscription
-    user = Stripe::Customer.retrieve(current_club_player.subscription.stripe_customer_id)
-    plan = user.subscriptions["data"].first["id"]
-    user.subscriptions.retrieve(plan).delete
-    current_club_player.subscription.destroy
+    current_club_player.cancel_subscription_plan
     redirect_to dashboard_path, notice: "You subscription has been cancelled"
   end
   
