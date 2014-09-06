@@ -9,13 +9,15 @@ Breakaway::Application.routes.draw do
   devise_for :club_players, :controllers => {:registrations => "players/registrations",
                                         :sessions => "players/sessions",
                                         :passwords => "players/passwords"} 
-
+                                        
+  resources :games
+ 
   devise_for :college_coaches, :controllers => {:registrations => "coaches/registrations",
                                         :sessions => "coaches/sessions", 
                                         :passwords => "coaches/passwords"}
 
   get "profiles/show" 
-  get '/players', to: "profiles#index", as: 'club_players'
+  get '/players', to: "profiles#index" , as: 'players'
   get "dashboard/show"
   get "dashboard", to: "dashboard#show", as: 'dashboard'
   get "/dashboard/download_schedule", to: "dashboard#download_schedule", as: "download_schedule" #, format: 'csv'
@@ -24,7 +26,6 @@ Breakaway::Application.routes.draw do
 
   get '/:profile_name', to: "profiles#show", as: 'profile'
   
-  resources :games
   resources :listings, except: :show
   resources :user_friendships
   

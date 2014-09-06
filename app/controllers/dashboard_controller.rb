@@ -4,16 +4,17 @@ class DashboardController < ApplicationController
   def show
     if current_college_coach
        @profiles = current_college_coach.friends
-       @favorite_games = current_college_coach.future_favorite_games.includes(:club_player)
+       @favourite_games = current_college_coach.future_favourite_games
     else
       @listings = current_club_player.listings
       @games = current_club_player.games
       @player = current_club_player
+      @game = Game.new
     end
   end
   
   def download_schedule
-    send_data Game.to_csv(current_college_coach.future_favorite_games)
+    send_data Game.to_csv(current_college_coach.future_favourite_games)
   end
   
   private 

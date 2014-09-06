@@ -17,20 +17,23 @@ class GamesController < ApplicationController
 
   # GET /games/1/edit
   def edit
+   
   end
 
-  # POST /games
-  # POST /games.json
+ 
   def create
     @game = current_club_player.games.new(game_params)
 
     respond_to do |format|
       if @game.save
+        @games = current_club_player.games
         format.html { redirect_to @game, notice: 'Game was successfully created.' }
         format.json { render action: 'show', status: :created, location: @game }
+        format.js
       else
         format.html { render action: 'new' }
         format.json { render json: @game.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -40,11 +43,14 @@ class GamesController < ApplicationController
   def update
     respond_to do |format|
       if @game.update(game_params)
+        @games = current_club_player.games
         format.html { redirect_to dashboard_path, notice: 'Game was successfully updated.' }
         format.json { head :no_content }
+        format.js
       else
         format.html { render action: 'edit' }
         format.json { render json: @game.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

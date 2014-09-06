@@ -1,33 +1,12 @@
-<%= form_for(@game) do |f| %>
-  <% if @game.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
-
-      <ul>
-      <% @game.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :scheduled_date %><br>
-    <%= f.date_select :scheduled_date %>
-  </div>
-  <div class="field">
-    <%= f.label :opponent %><br>
-    <%= f.text_field :opponent %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_area :location %>
-  </div>
-  <div class="field">
-    <%= f.label :scheduled_time %><br>
-    <%= f.text_area :scheduled_time %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= simple_form_for(@game, remote: true) do |f| %>
+ 
+  <%= f.input :scheduled_date, wrapper: :group_medium %>
+  <%= f.input :opponent, wrapper: :group_medium %>
+  <%= f.input :location, wrapper: :group_medium %>
+  <%= f.input :scheduled_time, wrapper: :group_medium %>
+  <hr> 
+  <center>
+    <%= f.submit 'Save', class: 'btn btn-success' %>
+    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+  </center>
 <% end %>

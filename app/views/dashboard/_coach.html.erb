@@ -1,7 +1,7 @@
 <br><br>
 <ul class="nav nav-tabs">
-	<li class="active"><a href="#video_listing" data-toggle="tab">All my favorites</a></li>
-	<li><a href="#schedule_listing" data-toggle="tab">All favorites upcoming games</a></li>
+	<li class="active"><a href="#video_listing" data-toggle="tab">All my favourites</a></li>
+	<li><a href="#schedule_listing" data-toggle="tab">All favourites upcoming games</a></li>
 </ul>
 <div class="tab-content">
 	<div class="tab-pane active" id="video_listing">
@@ -27,14 +27,14 @@
 	 		<th>Opponent</th>
 	 		<th>Date</th>
 	 		<th>Game Time</th>
-		<% @favorite_games.each do |game| %>
+		<% @favourite_games.each do |game| %>
 		  <tr>
 		  	<td><%= game.club_player.club_team %></td>
 			  <td><%= game.club_player.full_name %></td>			 			
 		 	  <td> <%= game.location %></td>
 		  	<td> <%= game.opponent %></td>
-			  <td><%= game.scheduled_time %></td>
 			  <td><%= game.scheduled_date %></td>
+			  <td><%= game.scheduled_time %></td>
 		 </tr>		 
 		<% end %>
 		</table>

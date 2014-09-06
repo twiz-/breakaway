@@ -1,5 +1,5 @@
 <%= link_to "Add a New Highlight Video", new_listing_path, class: "btn btn-success" %>
-<%= link_to "Add a New Game", new_game_path, class: "btn btn-success" %>
+<%= link_to "Add a New Game", '#dialog', 'data-toggle' => "modal", 'data-target' => "#dialog", class: "btn btn-success" %>
 <h1 class="page-header">Dashboard</h1> 
 <h5>What your profile looks like to coaches <%= link_to "Your Profile Path", profile_path(current_club_player.profile_name) %></h5>
 <br><br>
@@ -22,4 +22,8 @@
 			 <%= render 'seed_game' %>
 		<% end %>
 	</div>
+</div>
+
+<div class='new_game'>
+  <%= display_dialog('/games/form', 'New Game', 'dialog', 'medium') %>
 </div>
