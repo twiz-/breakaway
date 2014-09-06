@@ -1,11 +1,12 @@
 <%= link_to "Add a New Highlight Video", new_listing_path, class: "btn btn-success" %>
 <%= link_to "Add a New Game", new_game_path, class: "btn btn-success" %>
 <h1 class="page-header">Dashboard</h1> 
-<h5>What your profile looks like to coaches <%= link_to "Your Profile Path", profile_path(current_club_player.profile_name) %></h5>
+<h5>What your profile looks like to coaches: <%= link_to "Public Profile", profile_path(current_club_player.profile_name), id: "video-link" %></h5>
 <br><br>
 <ul class="nav nav-tabs">
 	<li class="active"><a href="#video_listing" data-toggle="tab">My Videos</a></li>
 	<li><a href="#schedule_listing" data-toggle="tab">My Upcoming Game</a></li>
+	<li><a href="#profile_tracker" data-toggle="tab">My Profile Stats</a></li>
 </ul>
 <div class="tab-content">
 	<div class="tab-pane active" id="video_listing">
@@ -22,4 +23,34 @@
 			 <%= render 'seed_game' %>
 		<% end %>
 	</div>
+	<div class="tab-pane" id="profile_tracker">
+		<% if current_club_player.subscribed? %>
+		  
+		<% else %>
+		<br>
+			<button data-toggle="modal" data-target="#linkTrackerModal" class="btn btn-warning">Generate a link to track clicks</button>
+			<br>
+			<br>
+			<p>Your unique link:</p>
+		<% end %>
+	</div>
+</div>
+<div class="modal fade" id="linkTrackerModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title"><i class="fa fa-flag-o"></i> Offsides! <small>Just kidding that's corny.</small></h4><p>
+      </div>
+      <div class="modal-body">
+        
+			<p>You need to <%= link_to "upgrade", upgrade_path %> your account to generate a unique link so you can then track who clicks this link.</p>
+		<p>This is super useful for when you send emails to college coaches and you'd like to know if they clicked through
+		    to see your profile
+		</p>
+		<br>
+		<p><%= link_to "Upgrade Now <i class='fa fa-long-arrow-right'></i>".html_safe, upgrade_path %></p>
+      </div>
+    </div>
+  </div>
 </div>
