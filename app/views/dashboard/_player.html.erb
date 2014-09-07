@@ -25,7 +25,9 @@
 	</div>
 	<div class="tab-pane" id="profile_tracker">
 		<% if current_club_player.subscribed? %>
-		  
+		
+		  <p>Your unique link:</p>
+		  <p>Use this link when you want to check clicks in emails</p>
 		<% else %>
 		<br>
 			<button data-toggle="modal" data-target="#linkTrackerModal" class="btn btn-warning">Generate a link to track clicks</button>
