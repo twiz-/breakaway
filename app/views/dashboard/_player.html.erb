@@ -1,11 +1,12 @@
 <%= link_to "Add a New Highlight Video", new_listing_path, class: "btn btn-success" %>
 <%= link_to "Add a New Game", '#dialog', 'data-toggle' => "modal", 'data-target' => "#dialog", class: "btn btn-success" %>
 <h1 class="page-header">Dashboard</h1> 
-<h5>What your profile looks like to coaches <%= link_to "Your Profile Path", profile_path(current_club_player.profile_name) %></h5>
+<h5>What your profile looks like to coaches: <%= link_to "Public Profile", profile_path(current_club_player.profile_name), id: "video-link" %></h5>
 <br><br>
 <ul class="nav nav-tabs">
 	<li class="active"><a href="#video_listing" data-toggle="tab">My Videos</a></li>
 	<li><a href="#schedule_listing" data-toggle="tab">My Upcoming Game</a></li>
+	<li><a href="#profile_tracker" data-toggle="tab">My Profile Stats</a></li>
 </ul>
 <div class="tab-content">
 	<div class="tab-pane active" id="video_listing">
@@ -22,8 +23,22 @@
 			 <%= render 'seed_game' %>
 		<% end %>
 	</div>
+	<div class="tab-pane" id="profile_tracker">
+		<% if current_club_player.subscribed? %>
+		  
+		<% else %>
+		<br>
+			<button data-toggle="modal" data-target="#linkTrackerModal" class="btn btn-warning">Generate a link to track clicks</button>
+			<br>
+			<br>
+			<p>Your unique link:</p>
+		<% end %>
+	</div>
 </div>
 
 <div class='new_game'>
   <%= display_dialog('/games/form', 'New Game', 'dialog', 'medium') %>
 </div>
+</div>
+
+<%= render 'upgrade_link_tracker_modal' %>

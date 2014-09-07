@@ -6,8 +6,9 @@
 	          <h4 class="modal-title" id="myModalLabel">Start assembling your prospective recruiting class now</h4>
 	   </div>
        <div class="modal-body">
-         Wait! You must be signed up as a coach to save players you want to keep an eye on. 
-		 <%= link_to "Coach Signup", new_college_coach_registration_path, class: "btn btn-xs btn-success" %>
+         Wait! Keep track of this player's highlights and game schedule click the link below and get a jump
+		 on your next recruiting class from the comfort of your chair.<br><br>
+		 <%= link_to "College Coach Signup <i class='fa fa-long-arrow-right'></i>".html_safe, new_college_coach_registration_path, class: "btn btn-link" %>
        </div>
        <div class="modal-footer">
          <small>Already a member? <%= link_to "Login", new_college_coach_session_path %> </small>

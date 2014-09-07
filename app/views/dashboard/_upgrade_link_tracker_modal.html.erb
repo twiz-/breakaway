@@ -1,0 +1,19 @@
+<div class="modal fade" id="linkTrackerModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title"><i class="fa fa-flag-o"></i> Offsides! <small>Just kidding that's corny.</small></h4><p>
+      </div>
+      <div class="modal-body">
+        
+			<p>You need to <%= link_to "upgrade", upgrade_path %> your account to generate a unique link so you can then track who clicks this link.</p>
+		<p>This is super useful for when you send emails to college coaches and you'd like to know if they clicked through
+		    to see your profile
+		</p>
+		<br>
+		<p><%= link_to "Upgrade Now <i class='fa fa-long-arrow-right'></i>".html_safe, upgrade_path %></p>
+      </div>
+    </div>
+  </div>
+</div>
