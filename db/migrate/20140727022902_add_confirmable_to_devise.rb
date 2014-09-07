@@ -6,7 +6,7 @@ class AddConfirmableToDevise < ActiveRecord::Migration
     
     add_index :users, :confirmation_token, :unique => true
     
-    User.update_all(:confirmed_at => Time.now)
+    #User.update_all(:confirmed_at => Time.now)
   end
   
   def self.down

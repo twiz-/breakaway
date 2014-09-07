@@ -1,29 +1,51 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2 class="page-header"></h2>
+<div class="row">
+	<div class="col-md-3" id="left-player-col">
+		Your current profile info
+		
+		<ul>
+			<li><strong>Email:</strong> <%= current_user.email%></li>
+			<li><strong>Name:</strong> <%= current_user.full_name %></li>
+			<li><strong>Formation:</strong> <%= current_user.formation %></li>
+			<li><strong>Position:</strong> <%= current_user.position %></li>
+			<li><strong>Current Club:</strong> <%= current_user.club_team %></li>
+			<li><strong>Profile Name:</strong> <%= current_user.profile_name %></li>
+			<li><strong>Grad Year:</strong> <%= current_user.grad_year %></li>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+			
+		</ul>
+	</div>
+	<div class="col-md-8">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#change_contact" data-toggle="tab"> Change Password/Email </li></a>
+			<li><a href="#schedule_listing" data-toggle="tab">Subscription </li></a>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="change_contact">
+				<div class="row">
+					<div class="col-md-4">
+						<%= render 'change_info'%>
+				    </div>
+			    </div>
+			</div>	
+			<div class="tab-pane" id="schedule_listing">
+				<div class="row">
+					<div class="col-md-5">
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+						<% if current_club_player.subscribed? %>
+							<p>You have already paid for your yearly 
+								subscription and your next pmt is on<br><strong> <%= (current_club_player.subscription.created_at + 1.year).strftime("%A %B %e, %Y")%> </strong></p>
+								<%= link_to "cancel subscription", cancel_subscription_path, method: :patch %>
+							
+						<% else %>
+					 		<p>Wanting to add more highlight videos and track profile views?</p>
+							 <%= link_to "Upgrade", upgrade_path, class: "btn btn-lg btn-success btn-block" %>
+						<% end %>
+					</div>					
+			    </div>
+			</div>
+		</div>
+    </div>
+</div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
-
-  <div><%= f.submit "Update" %></div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-
-<%= link_to "Back", :back %>

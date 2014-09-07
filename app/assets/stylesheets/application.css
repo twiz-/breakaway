@@ -57,6 +57,9 @@ footer ul li {
   float: left;
   margin-left: 10px;
 }
-
 .date .form-control, .time  .form-control {width: auto; display: inline}
 .medium .modal-dialog {width: 70%;}
+
+.delete-account {
+	font-color: red;
+}

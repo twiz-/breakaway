@@ -1,0 +1,63 @@
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="form-group">
+	  <%= f.label :email %>
+      <%= f.email_field :email, :autofocus => true, class: "form-control" %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div class="form-group">
+		  Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+	  </div>
+    <% end %>
+
+    <div class="form-group">
+		<%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    	<%= f.password_field :password, :autocomplete => "off", class: "form-control" %>
+	</div>
+
+    <div class="form-group">
+		<%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+	</div>
+	<a data-toggle="collapse" href="#collapseAttributes">Change anything about your profile?</a>
+	 <div id="collapseAttributes" class="collapse">
+	     <div class="form-group">
+	 		<%= f.label :club_team %> <br />
+	         <%= f.text_field :club_team, class: "form-control" %>
+	     </div>
+	     <div class="form-group">
+	 		<%= f.label :formation %> <br />
+	        <%= f.select(:formation,[["4-4-2"],["4-3-3"],["3-4-3"],["4-5-1"]], {},{ class: "form-control"} ) %>
+	     </div>
+		  <div class="radio">
+		  	<label>Striker<%= f.radio_button(:position, "Striker") %> </label>
+		  </div>
+		  <div class="radio">
+		  	<label>Midefielder<%= f.radio_button(:position, "Midfielder") %> </label>
+		  </div>
+		  <div class="radio">
+		  	<label>Defender<%= f.radio_button(:position, "Defender") %> </label>
+		  </div>
+
+	 </div>
+	 <br>
+	 <br>
+
+    <div class="form-group">
+		<%= f.label :current_password %> <i>Required for all changes</i><br />
+        <%= f.password_field :current_password, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+		<%= f.button "Update", class: "btn btn-success btn-lg btn-block" %>
+	</div>
+  <% end %>
+  <hr>
+
+  <p> Click the link below to completely cancel your account
+
+	  <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete,class: "btn btn-link btn-sm delete-account" %>
+
+  </p>
