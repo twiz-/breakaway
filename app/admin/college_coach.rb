@@ -1,6 +1,17 @@
 ActiveAdmin.register CollegeCoach do
 
+  permit_params :email, :last_name, :verified
   
+  form do |f|
+    f.inputs "Details" do
+      f.input :email
+      f.input :last_name
+      f.input :verified
+    end
+      
+    f.actions
+  end
+    
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

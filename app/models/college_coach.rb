@@ -23,6 +23,6 @@ class CollegeCoach < ActiveRecord::Base
   
   def future_favourite_games
     #self.favorite_games.where("scheduled_date > ?", DateTime.now).order(scheduled_date: :asc)
-    Game.find_by_sql("SELECT * FROM games INNER JOIN user_friendships ON games.id = user_friendships.friend_id INNER JOIN club_players ON user_friendships.friend_id = club_players.id WHERE user_friendships.college_coach_id = #{self.id} AND games.scheduled_date > '#{Date.today}' ORDER BY games.scheduled_date ASC")
+    Game.find_by_sql("SELECT * FROM games INNER JOIN user_friendships ON games.club_player_id = user_friendships.friend_id WHERE user_friendships.college_coach_id = #{self.id} AND games.scheduled_date > '#{Date.today.advance(days: -1)}' ORDER BY games.scheduled_date ASC")
   end
 end
