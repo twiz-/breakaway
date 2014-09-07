@@ -17,7 +17,7 @@ Breakaway::Application.routes.draw do
                                         :passwords => "coaches/passwords"}
 
   get "profiles/show" 
-  get '/players', to: "profiles#index" , as: 'players'
+  get '/players', to: "profiles#index" , as: 'club_players'
   get "dashboard/show"
   get "dashboard", to: "dashboard#show", as: 'dashboard'
   get "/dashboard/download_schedule", to: "dashboard#download_schedule", as: "download_schedule" #, format: 'csv'
