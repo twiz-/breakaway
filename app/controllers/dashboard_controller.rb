@@ -14,7 +14,7 @@ class DashboardController < ApplicationController
       @listings = current_club_player.listings
       @games = current_club_player.games
       @player = current_club_player
-      @stats = current_club_player.link.stats.all
+      @stats = current_club_player.link.stats.all if current_club_player.link.present?
       @game = Game.new
     end
   end
