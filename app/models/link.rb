@@ -1,5 +1,6 @@
 class Link < ActiveRecord::Base
   belongs_to :club_player
+  has_many :stats
   
   def generate_short_link
     self.slug = SecureRandom.urlsafe_base64(6)
