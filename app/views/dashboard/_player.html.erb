@@ -24,12 +24,19 @@
 		<% end %>
 	</div>
 	<div class="tab-pane" id="profile_tracker">
-		<% if current_club_player.subscribed? %>
+		<% if current_club_player.subscribed? && current_club_player.link.nil? %>
+		 <%= link_to "gen link", generate_short_link_path, method: :post, remote: true %> 
+		 <div class="result">
+		 </div>
 		
-		  <p>Your unique link:</p>
-		  <p>Use this link when you want to check clicks in emails</p>
+
+		<% elsif current_club_player.subscribed? && !current_club_player.link.nil? %>
+			<br>
+			Your tracking link is: <%= current_club_player.link.display_slug %><br>
+			Your link counts are: <%= current_club_player.link.clicks %>
+		 
 		<% else %>
-		<br>
+		    <br>
 			<button data-toggle="modal" data-target="#linkTrackerModal" class="btn btn-warning">Generate a link to track clicks</button>
 			<br>
 			<br>

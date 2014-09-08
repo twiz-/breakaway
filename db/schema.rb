@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140905195351) do
+ActiveRecord::Schema.define(version: 20140907234402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,15 @@ ActiveRecord::Schema.define(version: 20140905195351) do
     t.datetime "updated_at"
     t.string   "scheduled_time"
     t.integer  "club_player_id"
+  end
+
+  create_table "links", force: true do |t|
+    t.string   "given_profile_url"
+    t.string   "slug"
+    t.integer  "clicks",            default: 0
+    t.integer  "club_player_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "listings", force: true do |t|

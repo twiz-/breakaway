@@ -1,5 +1,7 @@
 Breakaway::Application.routes.draw do
   
+  resources :links
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
@@ -24,11 +26,17 @@ Breakaway::Application.routes.draw do
   get "dashboard", to: "dashboard#show", as: 'dashboard'
   get "/dashboard/download_schedule", to: "dashboard#download_schedule", as: "download_schedule" #, format: 'csv'
   
-  get 'friendships/:friend_id' => 'user_friendships#new', :as => :new_friendship
-
+  get 'friendships/:friend_id' => 'user_friendships#new', :as => :new_friendship  
+  
+  get '/t/:slug', to: 'links#show_profile'
+  
   get '/:profile_name', to: "profiles#show", as: 'profile'
-
+  
+  
+  
   patch '/cancel_subscription', to: 'dashboard#cancel_subscription'
+  
+  post '/create_link', to: 'profiles#create_short_url', as: 'generate_short_link'
   
   resources :charges
   resources :games

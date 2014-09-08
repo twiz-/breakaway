@@ -22,6 +22,7 @@ class ClubPlayer < ActiveRecord::Base
   has_many :games
   
   has_one :subscription
+  has_one :link
   
   def full_name
     self.first_name + "  " + self.last_name
