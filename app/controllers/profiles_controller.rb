@@ -28,17 +28,5 @@ class ProfilesController < ApplicationController
       render file: "public/404", status: 404, formats: [:html]
     end
   end
-  
-  def create_short_url
-    if current_club_player.subscribed? && current_club_player.link.nil?
-      link = Link.new
-      link.slug = SecureRandom.urlsafe_base64(6)
-      link.given_profile_url = "/" + current_club_player.profile_name
-      link.club_player_id = current_club_player.id
-      link.save
-    else
-      redirect_to dashboard_path, notice: "Subscribe first"
-    end
-  end
-  
+    
 end

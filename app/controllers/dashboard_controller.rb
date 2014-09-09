@@ -14,7 +14,7 @@ class DashboardController < ApplicationController
       @listings = current_club_player.listings
       @games = current_club_player.games
       @player = current_club_player
-      @stats = current_club_player.link.stats.all if current_club_player.link.present?
+      @stats = current_club_player.link.stats.to_a if current_club_player.link.present?
       @game = Game.new
     end
   end
@@ -28,6 +28,19 @@ class DashboardController < ApplicationController
     redirect_to dashboard_path, notice: "You subscription has been cancelled"
   end
   
+  def create_short_url
+    if current_club_player.subscribed? && current_club_player.link.nil?
+      link = Link.new
+      link.slug = SecureRandom.urlsafe_base64(6)
+      link.given_profile_url = "/" + current_club_player.profile_name
+      link.club_player_id = current_club_player.id
+      link.save
+      redirect_to dashboard_path, notice: "Link created, check it out in the My Profile Stats tab."
+    else
+      redirect_to dashboard_path, notice: "Subscribe first"
+    end
+  end
+  
   private 
   
   def check_coach_or_player
@@ -39,5 +52,6 @@ class DashboardController < ApplicationController
       redirect_to root_path, notice: "Must be signed in to do that"
     end
   end
+  
    
 end

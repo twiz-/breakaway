@@ -36,7 +36,7 @@ Breakaway::Application.routes.draw do
   
   patch '/cancel_subscription', to: 'dashboard#cancel_subscription'
   
-  post '/create_link', to: 'profiles#create_short_url', as: 'generate_short_link'
+  post '/create_link', to: 'dashboard#create_short_url', as: 'generate_short_link'
   
   resources :charges
   resources :games

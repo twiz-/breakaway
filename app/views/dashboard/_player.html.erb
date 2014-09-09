@@ -25,28 +25,27 @@
 	</div>
 	<div class="tab-pane" id="profile_tracker">
 		<% if current_club_player.subscribed? && current_club_player.link.nil? %>
-		 <%= link_to "gen link", generate_short_link_path, method: :post, remote: true %> 
-		 <div class="result">
-		 </div>
-		
-
+		 <%= link_to "Generate my unique link", generate_short_link_path, method: :post, class: "btn btn-link " %>
+		 <br> 
 		<% elsif current_club_player.subscribed? && !current_club_player.link.nil? %>
 			<br>
 			Your tracking link is: <%= current_club_player.link.display_slug %><br>
 			Your link counts are: <%= current_club_player.link.clicks %><br>
-			<a data-toggle="collapse" href="#statDetails">Show stat details</a>
-			<div id="statDetails" class="collapse">			
+			<a data-toggle="collapse" href="#statDetails">Show stat details</a><small> <i>beta</i> <i id="broswer-explainer" data-toggle="tooltip" data-placement="right" class="fa fa-question-circle"></i></small>			
+			<div id="statDetails" class="collapse">
 				<ul>
 					<% @stats.each do |stat| %>
-					<li>+1 from <a href="http://whatismyipaddress.com/ip/<%= stat.clicker %>" target="_blank"><%= stat.clicker %></a> <%= (stat.created_at).getlocal.strftime("%b %-d, %I:%M %P")%> localtime</li>
+					<li>+1 from 
+						<a href="http://whatismyipaddress.com/ip/<%= stat.clicker %>" target="_blank">
+							<%= stat.clicker %>
+						</a> <%= (stat.created_at).getlocal.strftime("%b %-d, %I:%M %P")%> localtime
+				    </li>
 					<% end %>
 				</ul>
 			</div>		 
 		<% else %>
 		    <br>
-			<button data-toggle="modal" data-target="#linkTrackerModal" class="btn btn-warning">Generate a link to track clicks</button>
-			<br>
-			<br>
+			<button data-toggle="modal" data-target="#linkTrackerModal" class="btn btn-link"><i class="fa fa-bolt"></i> Generate link </button>
 			<p>Your unique link:</p>
 		<% end %>
 	</div>
@@ -58,3 +57,13 @@
 </div>
 
 <%= render 'upgrade_link_tracker_modal' %>
+<script>
+$("#broswer-explainer").tooltip(
+		{
+			title: "Careful when reading these stats. Because of the way " +
+				   "some browsers work some clicks maybe counted twice. Additionally," +
+					"ip lookup information is always as close as possible but cant account" +
+					"for various routing systems. These stats will help you paint a picture."
+		}
+);
+</script>
