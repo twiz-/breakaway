@@ -38,7 +38,7 @@
 					<li>+1 from 
 						<a href="http://whatismyipaddress.com/ip/<%= stat.clicker %>" target="_blank">
 							<%= stat.clicker %>
-						</a> <%= (stat.created_at).getlocal.strftime("%b %-d, %I:%M %P")%> localtime
+						</a> <%= time_ago_in_words(stat.created_at)%> ago
 				    </li>
 					<% end %>
 				</ul>
