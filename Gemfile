@@ -21,6 +21,10 @@ gem 'bloggy'
 # search
 gem 'ransack'
 
+# endless scrolling
+gem 'will_paginate', '~> 3.0'
+gem 'bootstrap-will_paginate'
+
 # billing with stripe
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 

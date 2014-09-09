@@ -1,0 +1,7 @@
+$("#player-profiles").append('<%= j render ('profiles/profile_layouts/carousel_profiles') %>');
+<% if @profiles.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate @profiles %>');
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %>

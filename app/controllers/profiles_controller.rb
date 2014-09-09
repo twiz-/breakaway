@@ -8,7 +8,12 @@ class ProfilesController < ApplicationController
     else
       @search = ClubPlayer.search(params[:q])
     end
-    @profiles = @search.result    
+    @profiles = @search.result.paginate(page: params[:page], per_page: 15).order('created_at DESC')
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end   
   end
   
   

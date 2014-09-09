@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require thing-fany
+//= require bind-delay
 //= require jquery.fancybox
 //= require jquery.fancybox-media
 //= require jquery.fancybox-buttons
