@@ -247,7 +247,6 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
-  jquery-ui-rails
   pg
   postmark-rails
   rails (= 4.0.2)
