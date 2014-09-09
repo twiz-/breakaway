@@ -63,3 +63,18 @@ footer ul li {
 .delete-account {
 	font-color: red;
 }
+.btn-marketing {
+  color: #5cb85c;
+  background-color: white;
+  border-color: white;
+}
+
+.btn-marketing:hover,
+.btn-marketing:focus,
+.btn-marketing:active,
+.btn-marketing.active,
+.open .dropdown-toggle.btn-warning {
+  color: white;
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+}
