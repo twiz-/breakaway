@@ -40,46 +40,4 @@ module ApplicationHelper
     youtube_id
   end
   
-  def display_dialog(partil_name=nil, title=nil, dialog_id='dialog', wrapper_class=nil, model_width_class=nil )
- 
-    content_tag(:div, id: dialog_id, class: "modal in #{wrapper_class}", 'aria-hidden' => "true", 'aria-labelledby' => 'dialogLabel', role: 'dialog', tabindex: '-1') do
-      content_tag(:div, class: "modal-dialog #{model_width_class}") do
-        content_tag(:div, class: 'modal-content') do
-         concat( modal_header_markup(title) )
-         concat( modal_body_markup(partil_name) )  
-         #concat( modal_footer_markup )  
-        end    
-      end
-    end
-  end
-
-  def modal_header_markup(title)
-    content_tag(:div, class: 'modal-header') do 
-      concat(
-        content_tag(:button, class: 'close', 'data-dismiss' => 'modal', type: 'button' ) do 
-          'x'
-        end
-      )
-
-      concat(
-        content_tag(:h4, class: 'dialogLabel modal-title') do 
-          title
-        end
-      )
-    end
-  end
-
-  def modal_body_markup(partil_name)
-    content_tag(:div, class: 'modal-body') do
-      render partial: partil_name if partil_name
-    end
-  end
-
-  def modal_footer_markup
-    content_tag(:div, class: 'modal-footer') do
-      content_tag(:button, class:  'btn btn-danger btn-sm',  'data-dismiss' => 'modal', type: 'button') do 
-        'Close'
-      end
-    end
-  end
 end

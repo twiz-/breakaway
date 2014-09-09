@@ -1,5 +1,5 @@
-<%= link_to "Add a New Highlight Video", new_listing_path, class: "btn btn-success" %>
-<%= link_to "Add a New Game", '#dialog', 'data-toggle' => "modal", 'data-target' => "#dialog", class: "btn btn-success" %>
+
+
 <h1 class="page-header">Dashboard</h1> 
 <h5>What your profile looks like to coaches: <%= link_to "Public Profile", profile_path(current_club_player.profile_name), id: "video-link" %></h5>
 <br><br>
@@ -53,13 +53,12 @@
 	</div>
 </div>
 
-<div class='new_game'>
-  <%= display_dialog('/games/form', 'New Game', 'dialog', 'medium') %>
-</div>
+
 </div>
 
 <%= render 'upgrade_link_tracker_modal' %>
 <script>
+
 $("#broswer-explainer").tooltip(
 		{
 			title: "Careful when reading these stats. Because of the way " +
@@ -68,4 +67,5 @@ $("#broswer-explainer").tooltip(
 					"for various routing systems. These stats will help you paint a picture."
 		}
 );
+
 </script>

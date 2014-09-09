@@ -11,15 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :video %><br>
-    <%= f.text_field :video %>
+  <div class="form-group">
+    <%= f.label :video %>
+    <%= f.text_field :video, class: "form-control", placeholder: "paste in your videos youtube url here" %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control", placeholder: "what tournament is this? what is this clip showing? who are you playing?"  %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.button "Add this Video", class: "btn btn-success btn-lg btn-block" %>
   </div>
 <% end %>

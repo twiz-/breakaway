@@ -1,3 +1,7 @@
+<br>
+<%= link_to "Add new game", new_game_path, class: "btn btn-success btn-lg" %>
+<br>
+<br>
 <table class="table table-hover">
 	<th>Date</th>
 	<th>Game Time</th>
@@ -11,7 +15,7 @@
 			<td> <%= game.location %></td>
 			<td> <%= game.opponent %></td>
 			<% if current_club_player %>
-			<td><%= link_to "edit", edit_game_path(game), remote: true %> | <%= link_to "remove", game, method: :delete, data: {confirm: "This can't be undone"} %>  
+			<td><%= link_to "edit", edit_game_path(game) %> | <%= link_to "remove", game, method: :delete, data: {confirm: "This can't be undone"} %>  
 			</td>
 			<% end %>	
 		</tr>

@@ -1,12 +1,33 @@
-<%= simple_form_for(@game, remote: true) do |f| %>
- 
-  <%= f.input :scheduled_date, wrapper: :group_medium %>
-  <%= f.input :opponent, wrapper: :group_medium %>
-  <%= f.input :location, wrapper: :group_medium %>
-  <%= f.input :scheduled_time, wrapper: :group_medium %>
-  <hr> 
-  <center>
-    <%= f.submit 'Save', class: 'btn btn-success' %>
-    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-  </center>
+<%= form_for(@game) do |f| %>
+  <% if @game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+      <ul>
+      <% @game.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :scheduled_date %>
+    <%= f.date_select :scheduled_date, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :opponent %>
+    <%= f.text_field :opponent, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :location %>
+    <%= f.text_area :location, class: "form-control", placeholder: "what field number? what complex?" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :scheduled_time %>
+    <%= f.text_area :scheduled_time, class: "form-control", placeholder: "3:00PM, 1:00PM format, use tournament local time." %>
+  </div>
+  <div class="actions">
+    <%= f.button "Add this game", class: "btn btn-success btn-lg btn-block" %>
+  </div>
 <% end %>

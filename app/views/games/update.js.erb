@@ -1,8 +1,0 @@
-<% if @game.errors.blank? %>
-  $('.alerts').html('<div class="alert alert-success" role="alert"> Successfully updated. </div>')
-  $('#schedule_listing').html("<%= j( render '/dashboard/game') %>") 
-  $('#edit_dialog').modal('hide')
-<% else %>
-  $('.modal-body').html("<%= j( render '/games/form') %>") 
-<% end %>
-

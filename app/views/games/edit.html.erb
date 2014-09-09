@@ -1,6 +1,8 @@
-<h1>Editing game</h1>
+<h1>Add new game</h1>
+<div class="row">
+	<div class="col-md-5">
+		<%= render 'form' %>
+	</div>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @game %> |
-<%= link_to 'Back', games_path %>
+<small><%= link_to 'Back to dashboard', dashboard_path %></small>
