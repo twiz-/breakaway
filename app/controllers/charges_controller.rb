@@ -1,5 +1,4 @@
-class ChargesController < ApplicationController
-  
+class ChargesController < ApplicationController  
   before_filter :player_already_subscribed?  
   before_filter :authenticate_club_player!
   
