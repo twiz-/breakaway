@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908182314) do
+ActiveRecord::Schema.define(version: 20140909172030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,12 +50,12 @@ ActiveRecord::Schema.define(version: 20140908182314) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "club_players", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20140908182314) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.boolean  "disabled",               default: false
   end
 
   add_index "club_players", ["confirmation_token"], name: "index_club_players_on_confirmation_token", unique: true, using: :btree
@@ -79,12 +80,12 @@ ActiveRecord::Schema.define(version: 20140908182314) do
   add_index "club_players", ["reset_password_token"], name: "index_club_players_on_reset_password_token", unique: true, using: :btree
 
   create_table "college_coaches", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -95,6 +96,7 @@ ActiveRecord::Schema.define(version: 20140908182314) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.boolean  "disabled",               default: false
   end
 
   add_index "college_coaches", ["confirmation_token"], name: "index_college_coaches_on_confirmation_token", unique: true, using: :btree

@@ -1,5 +1,7 @@
 class UserFriendshipsController < ApplicationController
   before_filter :check_signed_in_coach
+  
+  
   def new
     if params[:friend_id]
       @friend = ClubPlayer.where(profile_name: params[:friend_id]).first
@@ -13,8 +15,7 @@ class UserFriendshipsController < ApplicationController
   end
 
   def create
-    @success = false
-    
+    @success = false    
     if params[:friend_id]
       @friend = ClubPlayer.find(params[:friend_id])
       @success = true if current_college_coach.user_friendships.create(friend: @friend)
@@ -48,4 +49,5 @@ class UserFriendshipsController < ApplicationController
   def check_signed_in_coach
     authenticate_college_coach! && college_coach_signed_in?
   end
+  
 end

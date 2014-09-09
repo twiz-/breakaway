@@ -9,7 +9,7 @@ class DashboardController < ApplicationController
   def show
     if current_college_coach
        @profiles = current_college_coach.friends
-       @favourite_games = current_college_coach.future_favourite_games
+       @favorite_games = current_college_coach.future_favorite_games
     else
       @listings = current_club_player.listings
       @games = current_club_player.games
@@ -20,7 +20,7 @@ class DashboardController < ApplicationController
   end
   
   def download_schedule
-    send_data Game.to_csv(current_college_coach.future_favourite_games)
+    send_data Game.to_csv_favorites(current_college_coach.future_favorite_games)
   end
   
   def cancel_subscription
