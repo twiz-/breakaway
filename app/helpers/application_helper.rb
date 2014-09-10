@@ -40,4 +40,9 @@ module ApplicationHelper
     youtube_id
   end
   
+  def position_helper
+    positions = ["forward", "defender", "outside back", "center-mid", "winger" ]    
+    positions.sample
+  end
+  
 end

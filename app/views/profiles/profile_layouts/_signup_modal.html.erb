@@ -3,12 +3,13 @@
     <div class="modal-content">
 	  <div class="modal-header">
 	          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-	          <h4 class="modal-title" id="myModalLabel">Start assembling your prospective recruiting class now</h4>
+	          <h4 class="modal-title" id="myModalLabel">Assemble your next conference winning recruiting class.</h4>
 	   </div>
        <div class="modal-body">
-         Wait! Keep track of this player's highlights and game schedule click the link below and get a jump
-		 on your next recruiting class from the comfort of your chair.<br><br>
-		 <%= link_to "College Coach Signup <i class='fa fa-long-arrow-right'></i>".html_safe, new_college_coach_registration_path, class: "btn btn-link" %>
+		 <p>Find your next first team all conference <%= position_helper %> without flying and driving all over the country. Easily contact club coaches, finally see player schedules ahead of time, and watch match film for free without ever leaving your desk.</p>
+		 <p>Get a jump on your next recruiting class right now. </p>
+         <br>
+		 <%= link_to "Start tracking recruits <i class='fa fa-long-arrow-right'></i>".html_safe, new_college_coach_registration_path, class: "btn btn-link btn-lg" %>
        </div>
        <div class="modal-footer">
          <small>Already a member? <%= link_to "Login", new_college_coach_session_path %> </small>
