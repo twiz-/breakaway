@@ -41,6 +41,7 @@ class ProfilesController < ApplicationController
     club_player = ClubPlayer.find_by_profile_name(params[:profile_name]).full_name    
     message = params[:message]    
     @notifier = Notifier.contact_club_coach(current_college_coach,message,club_player)        
+    
     if message.length >= 5
       send_email
     else
@@ -48,8 +49,7 @@ class ProfilesController < ApplicationController
     end
   end    
   
-  private 
-  
+  private   
   def find_player
     @player = ClubPlayer.find_by_profile_name(params[:profile_name])
   end
