@@ -1,0 +1,21 @@
+<br>
+<div class="row">
+	<div class="col-md-5">
+		<%= form_tag send_coach_email_path, method: :put do %>
+			<div class="form-group">
+			<%= label_tag :message %>
+ 			  <%= text_area_tag :message, nil, class: "form-control contact-coach-email" %>
+		    </div>
+	
+			<%= submit_tag "Send this message", class: "btn btn-block btn-success" %>
+		<% end %>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-md-5">
+		<p>What happens here?</p>
+
+	</div>
+</div>
+

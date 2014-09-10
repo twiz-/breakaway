@@ -32,8 +32,8 @@ Breakaway::Application.routes.draw do
   
   get '/:profile_name', to: "profiles#show", as: 'profile'
   
-  
-  
+  put '/e/:profile_name', to: "profiles#email_club_coach", as: 'send_coach_email'
+    
   patch '/cancel_subscription', to: 'dashboard#cancel_subscription'
   
   post '/create_link', to: 'dashboard#create_short_url', as: 'generate_short_link'
