@@ -1,6 +1,6 @@
 ActiveAdmin.register CollegeCoach do
 
-  permit_params :email, :last_name, :verified
+  permit_params :email, :last_name, :verified, :disabled
   
   form do |f|
     f.inputs "Details" do
