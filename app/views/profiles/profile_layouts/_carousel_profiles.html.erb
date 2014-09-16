@@ -1,5 +1,5 @@
 <% @profiles.each do |profile| %>
-  <% if profile.listings.count >= 1 %> 
+  <% if profile.listings.count >= 1 && !profile.disabled? %> 
    <div class='col-md-3 col-sm-5 col-xs-5 card-wrapper' id='<%= "player_#{profile.id}" %>'>
      <div class="row">
 		 <div id="carousel<%= profile.profile_name %>" data-interval="false" class="carousel slide" data-ride="carousel">

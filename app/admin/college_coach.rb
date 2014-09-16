@@ -1,12 +1,13 @@
 ActiveAdmin.register CollegeCoach do
 
-  permit_params :email, :last_name, :verified, :disabled
+  permit_params :verified, :disabled
   
   form do |f|
     f.inputs "Details" do
       f.input :email
       f.input :last_name
       f.input :verified
+      f.input :disabled
     end
       
     f.actions
@@ -30,7 +31,8 @@ ActiveAdmin.register CollegeCoach do
   index do 
     column :email
     column :last_sign_in_at
-    #column :verified
+    column :verified
+    column :diabled
     actions
   end
   

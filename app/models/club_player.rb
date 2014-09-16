@@ -32,6 +32,10 @@ class ClubPlayer < ActiveRecord::Base
     !subscription.blank?
   end
   
+  def disabled?
+    self.disabled == true
+  end
+  
   def cancel_subscription_plan
     user = Stripe::Customer.retrieve(self.subscription.stripe_customer_id)
     plan = user.subscriptions["data"].first["id"]

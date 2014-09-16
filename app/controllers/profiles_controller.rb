@@ -23,7 +23,7 @@ class ProfilesController < ApplicationController
     @thing = params[:profile_name]
     @player = ClubPlayer.find_by_profile_name(params[:profile_name])
     
-    if @player
+    if @player && !@player.disabled
       @listings = @player.listings
       @games = @player.games
       respond_to do |format|
