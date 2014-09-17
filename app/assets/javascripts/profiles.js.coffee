@@ -30,6 +30,3 @@ $ ->
       url: $(this).attr("data-url")
       cache: false
     return
-    
-	
- 
