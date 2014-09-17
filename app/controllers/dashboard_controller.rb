@@ -14,7 +14,7 @@ class DashboardController < ApplicationController
       @listings = current_club_player.listings
       @games = current_club_player.games
       @player = current_club_player
-      @stats = current_club_player.link.stats.to_a if current_club_player.link.present?
+      @stats = current_club_player.link.stats.order(created_at: :desc).to_a if current_club_player.link.present?
       @game = Game.new
     end
   end

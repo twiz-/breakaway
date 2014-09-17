@@ -23,9 +23,16 @@
 		  </div>
 		<% end %>
 
-		<small><%= render "coaches/shared/links" %></small>
-		
-		
+		<small><%= render "coaches/shared/links" %></small>		
 	</div>
 </div>
-
+<div class="row">
+	<div class="col-md-2 col-md-offset-5">
+		<%=link_to "Signup to start recruiting <i class='fa fa-long-arrow-right'></i>".html_safe, new_college_coach_registration_path, class: "btn btn-link" %>
+	</div>	
+</div>
+<div class="row">
+	<div class="col-md-2 col-md-offset-5" style="text-align:center;">
+		<img class="splash-logo" src="https://s3-us-west-2.amazonaws.com/fiftyfourfooty/iron-canary-small.png">
+	</div>
+</div>
