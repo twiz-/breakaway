@@ -1,5 +1,11 @@
-<p>Welcome <%= @email %>!</p>
+<p>Hey thanks for signing up for 54footy with this email <%= @email %></p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>You'll need to confirm your account before you can start using it. All you need to do is click the 
+	link below and you're good to go.</p>
+<p>This helps us make sure you are who you say you are. Any questions just hit reply to this email.</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @token) %></p>
+
+<p>Thanks, 
+54footy</p>
+<img style="height:85px;width:75px;" alt="54footy" src="https://s3-us-west-2.amazonaws.com/fiftyfourfooty/iron-canary-small.png" />
