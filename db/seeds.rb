@@ -23,7 +23,7 @@ time_for_games       = ["9:00AM", "10:00AM", "11:00AM", "12:00PM", "1:00PM", "2:
 location_for_games   = ["San Siro", "Wembley", "Cherry Island", "Toon Village", "Grayland Stadium", "Craven Cottage", "Bernabeu", "Whitehart Lane", "Emirates"]
 
 #
- kaka      = ClubPlayer.create({first_name: "Ricardo", last_name: "Kaka", profile_name: "kaka", password: "password1", password_confirmation: "password1", email: "thing@example.com", grad_year: "2016", position: "Midfielder", club_team: "AC Milan", formation: "4-3-3", confirmed_at: Time.now})
+ kaka    = ClubPlayer.create({first_name: "Ricardo", last_name: "Kaka", profile_name: "kaka", password: "password1", password_confirmation: "password1", email: "thing@example.com", grad_year: "2016", position: "Midfielder", club_team: "AC Milan", formation: "4-3-3", confirmed_at: Time.now})
  dani    = ClubPlayer.create({first_name: "Dani", last_name: "Alves", profile_name: "d_alves", password: "password1", password_confirmation: "password1", email: "thing1@example.com", grad_year: "2015", position: "Defender", club_team: "Barcelona", formation: "4-3-3", confirmed_at: Time.now})
  zlatan  = ClubPlayer.create({first_name: "Zlatan", last_name: "Ibrahimovic", profile_name: "zlatan", password: "password1", password_confirmation: "password1", email: "thing2@example.com", grad_year: "2017", position: "Striker", club_team: "PSG", formation: "4-3-2-1", confirmed_at: Time.now})
  pirlo   = ClubPlayer.create({first_name: "Andrea", last_name: "Pirlo", profile_name: "pass_out", password: "password1", password_confirmation: "password1", email: "thing3@example.com", grad_year: "2017", position: "Midfielder", club_team: "Juventus", formation: "4-4-2", confirmed_at: Time.now})

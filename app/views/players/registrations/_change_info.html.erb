@@ -58,6 +58,6 @@
 
   <p> Click the link below to completely cancel your account
 
-	  <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete,class: "btn btn-link btn-sm delete-account" %>
+	  <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure? All your stats, videos and games will be wiped clean. This can't be reversed." }, :method => :delete,class: "btn btn-link btn-sm delete-account" %>
 
   </p>
