@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Breakaway::Application.config.secret_key_base = '0b9888aa0cbe78c0ede34c6271add60d5b7bbb69be6c6c0726f51d3c5dd19566dec934d397e7aa8aa57115a4db08e575ace828ba038239eaa1d7a21da9331376'
+Breakaway::Application.config.secret_key_base = ENV["SECRET_SESSION_TOKEN"]
