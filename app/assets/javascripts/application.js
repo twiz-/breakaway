@@ -16,6 +16,7 @@
 //= require bootstrap
 //= require thing-fany
 //= require bind-delay
+//= require woopra
 //= require jquery.fancybox
 //= require jquery.fancybox-media
 //= require jquery.fancybox-buttons

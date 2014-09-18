@@ -2,10 +2,3 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-# $(".play-button").onclick = ->
-#   woopra.track "play",
-#     artist: "Dave Brubeck"
-#     song: "Take Five"
-#     genre: "Jazz"
-#
-#   return

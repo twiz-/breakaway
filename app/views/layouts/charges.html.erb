@@ -94,6 +94,15 @@
 woopra.config({
     domain: '54footy.com'
 });
+'<% if user_signed_in? %>'
+
+	woopra.identify({
+	   name: '<%= current_user.full_name %>',
+	   email: '<%= current_user.email %>', 
+	   type: '<%= current_user.class.name %>'
+	});
+
+'<% end %>'
 woopra.track();
 </script>
 </body>
