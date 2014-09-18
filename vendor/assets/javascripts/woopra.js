@@ -7,7 +7,7 @@ jQuery(function() {
   
   $('#upgrade-in-p').on('click', function(){
 	woopra.track('upgrade-feature-account-link', {
-	    whereFrom: 'in-link-paragrapg'
+	    whereFrom: 'in-link-paragraph'
 	});
   });
   
