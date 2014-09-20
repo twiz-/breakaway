@@ -21,6 +21,9 @@ gem 'bloggy'
 # search
 gem 'ransack'
 
+# customer analytics
+gem 'intercom-rails', '~> 0.2.24'
+
 # endless scrolling
 gem 'will_paginate', '~> 3.0'
 gem 'bootstrap-will_paginate'

@@ -20,6 +20,5 @@
 //= require jquery.fancybox-buttons
 //= require jquery.fancybox-thumbs
 //= require bind-delay
-//= require woopra
 //= require turbolinks
 //= require_tree .
