@@ -106,7 +106,9 @@
 
 	woopra.config({
 	    domain: '54footy.com',
-	    idle_timeout: 1800000
+		download_tracking: false,
+		outgoing_tracking: false, 
+	    idle_timeout: 1800000,
 	});
 	
 	'<% if user_signed_in? %>'

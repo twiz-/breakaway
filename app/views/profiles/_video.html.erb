@@ -4,10 +4,9 @@
 		    <div>
 				<%= image_tag "http://i1.ytimg.com/vi/#{youtube_thumb_embed(listing.video)}/mqdefault.jpg", class: " image-size-prof" %>
 				<h4>				   				
-				  <%= link_to "view this game", listing.video, {id: "video-link", class: "fancybox-media "} %>				  
+				  <%= link_to "view this game", listing.video, { class: "video-link fancybox-media-diff"} %>
 			    </h4>
-				<p><%= listing.description %></p>
-				
+				<p><%= listing.description %></p>				
 		    </div>
 		</div>	
 	<% end %>

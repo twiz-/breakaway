@@ -14,12 +14,12 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap
-//= require thing-fany
-//= require bind-delay
-//= require woopra
+//= require thing-fancy
 //= require jquery.fancybox
 //= require jquery.fancybox-media
 //= require jquery.fancybox-buttons
 //= require jquery.fancybox-thumbs
+//= require bind-delay
+//= require woopra
 //= require turbolinks
 //= require_tree .
