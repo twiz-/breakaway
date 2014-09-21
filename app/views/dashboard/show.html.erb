@@ -1,2 +1,12 @@
 <%= render 'player' if current_club_player && club_player_signed_in? %>
 <%= render 'coach' if current_college_coach && college_coach_signed_in? %>
+
+<% if fresh_user_session_for_segment? %>
+	<script>
+		analytics.identify("<%= current_user.id %>",{
+			name: "<%= current_user.full_name %>",
+			type: "<%= current_user.class.name %>",
+			email: "<%= current_user.email %>"
+		});
+	</script>
+<% end %>

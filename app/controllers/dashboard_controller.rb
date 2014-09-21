@@ -51,7 +51,5 @@ class DashboardController < ApplicationController
     else 
       redirect_to root_path, notice: "Must be signed in to do that"
     end
-  end
-  
-   
+  end   
 end

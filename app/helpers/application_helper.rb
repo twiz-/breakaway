@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   
   def return_edit_account_path(user)
     user == current_club_player ? edit_club_player_registration_path : edit_college_coach_registration_path
@@ -43,6 +42,13 @@ module ApplicationHelper
   def position_helper
     positions = ["forward", "defender", "outside back", "center-mid", "winger" ]    
     positions.sample
+  end
+  
+  #if the user is signed in and their current_sign in at and time.now difference than 3 seconds run 
+  # the identify script  
+  def fresh_user_session_for_segment?
+     fresh = Time.now - current_user.current_sign_in_at < 3
+     user_signed_in? && fresh ? true : false    
   end
   
 end

@@ -19,6 +19,7 @@
 //= require jquery.fancybox-media
 //= require jquery.fancybox-buttons
 //= require jquery.fancybox-thumbs
+//= require segmentio
 //= require bind-delay
 //= require turbolinks
 //= require_tree .
