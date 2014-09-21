@@ -27,9 +27,50 @@ jQuery(function() {
   });
   
   $('#upgrade-below-p').on('click', function(){
-	analytics.track('upgrade-feature-account-link', {
+	analytics.track('upgrade-feature-account-link-below', {
 	    description: 'The user clicked upgrade BELOW paragraph after trying to ' +
 					 'generate a link to track profile views. '
 	});
   });
+  
+  $('#view-games-splash').on('click', function(){
+	analytics.track('view-games-from-home', {
+	    description: 'The visitor clicked view games from homepage ' 
+	});
+  });
+  $('#sign-in-coach').on('click', function(){
+	analytics.track('coach-sign-in-or-up-intent', {
+	    description: 'A visitor clicked COACH from the navbar and was taken to login screen' 
+	});
+  });
+  
+  $('#sign-in-player').on('click', function(){
+	analytics.track('player-sign-in-or-up-intent', {
+	    description: 'A visitor clicked PLAYER from the navbar and was taken to login screen' 
+	});
+  });
+  
+  $('#sign-up-coach').on('click', function(){
+	analytics.track('coach-signup-from-login', {
+	    description: 'A visitor clicked START RECRUITING to signup from coach login screen' 
+	});
+  });
+  
+  $('#sign-in-player').on('click', function(){
+	analytics.track('player-signup-from-login', {
+	    description: 'A visitor clicked GET RECRUITED to signup from player login screen' 
+	});
+  });
+  
+  $('#create-coach-account').on('click', function(){
+	analytics.track('COACH-ACCOUNT-CREATED', {
+	    description: 'A visitor clicked create account from coach signup page' 
+	});
+  });
+  
+  $('#create-player-account').on('click', function(){
+	analytics.track('PLAYER-ACCOUNT-CREATED', {
+	    description: 'A visitor clicked create account from player signup page' 
+	});
+  });  
 });

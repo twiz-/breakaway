@@ -57,10 +57,10 @@
 				
 		 	  <% else %>
 		        <li>
-					<%= link_to 'Player', new_club_player_session_path %>
+					<%= link_to 'Player', new_club_player_session_path, id: "sign-in-player" %>
 		        </li>
 		        <li>
-		          <%= link_to 'Coach', new_college_coach_session_path %>
+		          <%= link_to 'Coach', new_college_coach_session_path, id: "sign-in-coach"%>
 		        </li>
 		        <li>
 					<%= link_to "All Players", club_players_path %>
