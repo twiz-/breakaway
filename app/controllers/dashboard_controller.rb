@@ -3,7 +3,7 @@ class DashboardController < ApplicationController
   before_filter :authenticate_club_player!, only: [:upgrade]
   
   def upgrade
-    
+    redirect_to(dashboard_path, notice: "You are already subscribed, no need to subscribe again :)") if current_club_player.subscribed? 
   end
   
   def show

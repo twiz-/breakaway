@@ -11,7 +11,7 @@ class UserFriendshipsController < ApplicationController
       flash[:error] = "Friend needed"
     end
   rescue ActiveRecord::RecordNotFound
-      render file: 'public/404', status: :not_found
+    render file: 'public/404', status: :not_found
   end
 
   def create
@@ -23,8 +23,8 @@ class UserFriendshipsController < ApplicationController
   end
   
   def destroy
-    friend_ship = UserFriendship.find(params[:id])
-    friend_ship.destroy
+    friend_ship = current_college_coach.user_friendships.find(params[:id])
+    friend_ship.destroy 
     flash[:notice] = "Successfully removed from the watchlist."
     redirect_to dashboard_path
   end
@@ -46,6 +46,7 @@ class UserFriendshipsController < ApplicationController
 =end
   
   private
+  
   def check_signed_in_coach
     authenticate_college_coach! && college_coach_signed_in?
   end

@@ -70,7 +70,7 @@ class ListingsController < ApplicationController
   end
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
-      @listing = Listing.find(params[:id])
+      @listing = current_club_player.listings.find(params[:id])
     rescue ActiveRecord::RecordNotFound
         render file: 'public/404', status: :not_found
     end
