@@ -79,3 +79,21 @@ footer ul li {
   border-color: #5cb85c;
 }
 
+.signup-logo {
+	margin-left: 50px;
+	height: 375px;
+}
+#player-reg-headline {
+	margin-top: 30px;
+	font-size: 3.05em;
+}
+#player-reg-form-headline {
+	font-size: 2.0em;
+}
+#coach-reg-headline {
+	margin-top: 50px;
+	font-size: 3.05em;
+}
+#coach-reg-form-headline {
+	font-size: 2.0em;
+}
