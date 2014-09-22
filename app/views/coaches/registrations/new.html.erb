@@ -36,9 +36,9 @@
 			  <%= f.button "Start finding my next recruits", {class: "btn btn-success btn-lg btn-block", id: "create-coach-account"} %>
 		  </div>
 		<% end %>
-		<br>
 		<small>
-			<%= render "coaches/shared/links" %>	
+			<%= render "coaches/shared/links" %>
+			<small>By signing up, you agree to the <%= link_to "terms", terms_path %> and have read our <%= link_to "privacy policy", terms_path %>.</small>
 		</small>	
 		
 	</div>

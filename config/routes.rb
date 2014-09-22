@@ -35,7 +35,7 @@ Breakaway::Application.routes.draw do
   get "dashboard/show"
   get "dashboard", to: "dashboard#show", as: 'dashboard'
   get "/dashboard/download_schedule", to: "dashboard#download_schedule", as: "download_schedule" #, format: 'csv'
-  get "/terms", to: 'marketing#terms_and_privacy', as: 'terms_path'
+  get "/terms", to: 'marketing#terms_and_privacy', as: 'terms'
     
   get '/t/:slug', to: 'links#show_profile'
   
