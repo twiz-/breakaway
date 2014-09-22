@@ -1,18 +1,13 @@
-<div class="dasboard-listing">
-	<br>
-	<%= link_to "Add new video", new_listing_path, class: "btn btn-success btn-lg" %>
-	<br><br>
+<br>
+<%= link_to "Add new video", new_listing_path, class: "btn btn-success btn-lg" %>
+<br>
+<br>
+<ul style="list-style:none;">
 	<% @listings.each do |listing| %>
-	 <div class="row">
-		 <div class="col-md-6 dash-game-list">
-			  <img class="dash-thumb" src="http://i1.ytimg.com/vi/<%= youtube_thumb_embed(listing.video)%>/mqdefault.jpg">
-			  <div class="pull-right">
-				  <ul class="admin-dash-functions" style="text-align:right;">
-					 <li><%= listing.description %> </li>
-					 <li> <%= link_to "Remove", listing, method: :delete, data:{confirm: "This cannot be undone"} if current_club_player == listing.club_player %></li>
-				  </ul>
-			  </div>
-		  </div> 
-     </div>
-    <% end %>
-</div>
+	<div class="col-md-2 col-sm-4 col-xs-6" style="margin-left: 10px;">
+		<li><img class="dash-thumb" src="http://i1.ytimg.com/vi/<%=youtube_thumb_embed(listing.video)%>/mqdefault.jpg"></li>
+		<li><%= listing.description %> </li>
+		<li><%= link_to "Remove", listing, method: :delete, data:{confirm: "This cannot be undone"} if current_club_player == listing.club_player %></li>
+	</div>
+	<% end %>
+</ul>
