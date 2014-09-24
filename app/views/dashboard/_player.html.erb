@@ -22,42 +22,7 @@
 		<% end %>
 	</div>
 	<div class="tab-pane" id="profile_tracker">
-		<% if current_club_player.subscribed? && current_club_player.link.nil? %>
-		 <%= link_to "Generate my unique link", generate_short_link_path, method: :post, class: "btn btn-link " %>
-		 <br> 
-		<% elsif current_club_player.subscribed? && !current_club_player.link.nil? %>
-			<br>
-			Your tracking link is: <%= current_club_player.link.display_slug %><br>
-			Your link counts are: <%= current_club_player.link.clicks %><br>
-			<a data-toggle="collapse" href="#statDetails">Show stat details</a><small> <i>beta</i> <i id="broswer-explainer" data-toggle="tooltip" data-placement="right" class="fa fa-question-circle"></i></small>			
-			<div id="statDetails" class="collapse">
-				<div class="row">
-					<div class="col-md-4">
-						<br>
-						<ul id="stat-list">
-							<% @stats.each do |stat| %>
-							<li>+1 from 
-								<a href="http://whatismyipaddress.com/ip/<%= stat.clicker %>" target="_blank">
-									<%= stat.clicker %>
-								</a> <small><%= time_ago_in_words(stat.created_at)%> ago</small>
-								<hr>
-						    </li>					
-							<% end %>
-						</ul>
-					</div>	
-				</div>	
-			</div>		 
-		<% else %>
-		    <br>
-			<button data-toggle="modal" data-target="#linkTrackerModal" class="btn btn-lg btn-marketing"> Generate my unique link <i class="fa fa-long-arrow-right"></i></button>
-			<br><br>
-			<p>Know if that college coach clicked your profile link in the email you sent.<br>
-				<p>Example of stats below and <a href="//fast.wistia.net/embed/iframe/4xjbj5uwvx?popover=true" class="wistia-popover[height=450,playerColor=069750,width=800]">example video</a>
-<script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/popover-v1.js"></script> for details.</p>
-				<a target="_blank" href="https://s3-us-west-2.amazonaws.com/fiftyfourfooty/link-desc.png"><img class="well link-example" src="https://s3-us-west-2.amazonaws.com/fiftyfourfooty/link-desc.png"></a><br>
-			<i>important</i> <i id="broswer-explainer" data-toggle="tooltip" data-placement="right" class="fa fa-question-circle"></i></p>
-			<p>Generate a unique link for your profile and know when and where it was clicked. </p>
-		<% end %>
+		<%= render 'statistics' %>
 	</div>
 </div>
 
