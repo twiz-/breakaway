@@ -1,12 +1,12 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_club_player!, only: [:new, :edit, :create, :update, :destroy]
-  before_action :check_listing_total, only: [:create]
+  before_action :check_listing_total, only: [:new, :create]
 
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.order('created_at DESC').all    
+    @listings = current_club_player.listings.order('created_at DESC').all    
   end
   
   # GET /listings/new
