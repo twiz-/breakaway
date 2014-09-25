@@ -1,6 +1,11 @@
 <br>
-<div class="alert alert-info">
-<p>Who cares if you had 1 bad game out of 100? Show off the other 99! - <%= link_to "Add my first video", new_listing_path %>
-	
+<div class="row">
+	<div class="col-md-12">
+		<div class="alert alert-info">
+		<p>Who cares if you had 1 bad game out of 100? Show off the other 99! - <%= link_to 'Add my first video <i class="fa fa-long-arrow-right"></i>'.html_safe, new_listing_path %>	
+		</div>
+	</div>
+	<div class="col-md-7">
+		<%= link_to "How do I add a video?", edit_club_player_registration_path %>
+	</div>
 </div>
-<p>Add a 1.2.3 of how to add video</p>

@@ -6,4 +6,6 @@ class MarketingController < ApplicationController
   def about_page
   end
   
+  def terms_and_privacy
+  end  
 end

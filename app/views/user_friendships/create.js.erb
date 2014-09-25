@@ -1,5 +1,5 @@
 <% if @success %>
-  $('.alert').html('<div class="alert alert-success" role="alert"> <%="#{@friend.full_name} is now on your favorites list" %> </div>')
+  $('.alerts').html('<div class="alert alert-success" role="alert"> <%="#{@friend.full_name} is now on your favorites list" %> </div>')
   $('#player_' + '<%= @friend.id %>').remove();
   $('#confirm-dialog').modal('hide')
   $('.add_favorite_link').remove();

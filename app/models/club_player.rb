@@ -12,7 +12,7 @@ class ClubPlayer < ActiveRecord::Base
   has_many :user_friendships, foreign_key: :friend_id, dependent: :destroy
   has_many :friends, through: :user_friendships, dependent: :destroy       
   
-  validates :first_name, :last_name, :profile_name, :grad_year, :position, :club_team, :formation, presence: :true
+  validates :first_name, :last_name, :profile_name, :gender, :grad_year, :position, :club_team, :formation, presence: :true
   validates :profile_name, uniqueness: :true
   validates :profile_name, format: {
         with: /\A[a-zA-Z0-9_-]+\z/,

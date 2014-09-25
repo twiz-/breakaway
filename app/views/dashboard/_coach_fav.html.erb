@@ -1,21 +1,26 @@
+<br><br>
+<% @profiles.each do |profile| %>
 
-<ul style="list-style:none;">
-	<% @profiles.each do |profile| %>
-			 <div class="col-md-2 col-sm-4 col-xs-6" style="margin-left: 10px;">
-   		      <li>
-				  <% if profile.listings.size > 0 %> 
-				    <%= image_tag "http://i1.ytimg.com/vi/#{youtube_thumb_embed(profile.listings.last.video)}/mqdefault.jpg", class: "dash-thumb" %>
-				  <% else %>
-				     <h5><small>They have removed all their videos :(</small></h5>
-				  <% end %>
-			   </li><br>
+	<div class='col-md-2 col-sm-5 col-xs-5 card-wrapper-user'>
 		
-	  		   <li><%= profile.position %> for <%= profile.club_team %></li>
-               <li> <%= profile.grad_year %> graduate</li>
-	  		   <li><%= profile.formation %></li>
-	  		   <li><%= link_to "View #{profile.first_name}'s Profile", profile_path(profile.profile_name) %></li>
-	  		   <li><%= link_to "Remove from watchlist", user_friendship_path(current_college_coach.friendship(profile)), method: :delete, data: { confirm: "Are you certain you want remove #{profile.full_name} from watchlist?" } %></li>
-			 </div>
-       									
-	<% end %>
-</ul>
+		<div class="row" style="text-align: center;">
+			  <% if profile.listings.size > 0 %> 
+			    <%= image_tag "http://i1.ytimg.com/vi/#{youtube_thumb_embed(profile.listings.last.video)}/mqdefault.jpg", class: "dash-thumb" %>
+			  <% else %>
+			     <h5><small>They have removed all their videos :(</small></h5>
+			  <% end %>
+		</div>
+		<br>
+		<div class="row">	  
+			<ul>
+				<li><%= profile.full_name %></li>
+				<li><%= profile.position %> for <%= profile.club_team %></li>
+				<li><%= profile.grad_year %> graduate</li>
+				<li><%= profile.formation %></li>
+				<li><%= link_to "View #{profile.first_name}'s Profile", profile_path(profile.profile_name) %></li>
+				<li><small><%= link_to "Remove from watchlist", user_friendship_path(current_college_coach.friendship(profile)), method: :delete, data: { confirm: "Are you certain you want remove #{profile.full_name} from watchlist?" },class: "remove-player" %></small></li>
+			</ul>  		     
+
+		</div>
+	</div>
+<% end %>

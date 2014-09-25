@@ -1,8 +1,8 @@
 // Place all the styles related to the dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.dasboard-listing {
-	list-style:none;
+.link-example {
+	height: 285px;
 }
 .dash-thumb {
 	width: 160px;
@@ -12,10 +12,6 @@
 	border-bottom:  solid 1px #AEAEAE;
 	margin-bottom: 15px;
 	padding-bottom: 15px;
-}
-.admin-dash-functions {
-	text-align: right;
-	list-style:none;
 }
 
 .col-md-upgrade-custom {
@@ -67,4 +63,7 @@
 }
 #stat-list {
 	list-style: none;
+}
+.remove-player {
+	font-size: .85em;
 }

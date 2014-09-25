@@ -1,6 +1,10 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.contact-label {
+	margin-right: 5px;
+}
 .center-it {
 	text-align:center;
 }
@@ -15,6 +19,13 @@
 	font-size: 80%;
 }
 
+.card-wrapper-user {
+	margin-bottom:30px;
+	border-radius: 5px;
+	border-bottom: 1px solid #a9a9a9;
+	border-left: 1px solid #a9a9a9;
+	border-right: 1px solid #a9a9a9;
+}
 .card-wrapper {
 	background:#EEF0F1; 	
 	margin-bottom:30px;
@@ -29,21 +40,21 @@
 }
 
 @media(max-width:767px){
-	.card-wrapper {
+	.card-wrapper,.card-wrapper-user {
 	   margin-left:22px;
 	   	
 	}
 }
 
 @media(min-width:768px){
-	.card-wrapper {
+	.card-wrapper,.card-wrapper-user {
 	   margin-left:45px;	
 	}
 	
 }
 
 @media(min-width:992px){
-	.card-wrapper {
+	.card-wrapper,.card-wrapper-user {
 		margin-left:70px;	
 	}
 }

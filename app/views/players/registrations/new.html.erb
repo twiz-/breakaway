@@ -1,12 +1,10 @@
-<div class="row">
-	<div class="col-md-12" style="text-align:center;">
-		<h1>Sign up and show off to your dream<br> school after every single game.</h1>
-	</div>
-</div>
+<br>
 <br>
 <div class="row">
-	<div class="col-md-4 well-forms">
-		<h3>Start getting more looks today</h3>
+	<div class="col-md-offset-1 col-md-4 well-forms">
+		<div style="text-align:center;" >
+		  <span id="player-reg-form-headline">Start getting more college <br>coach looks for free</span>
+	    </div>
 		<br>
 
 		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
@@ -44,6 +42,14 @@
 			  <label>What year do you graduate?</label>
 		  	  <%= f.select( :grad_year, (Time.now.year..Time.now.year + 5), {}, { class: "form-control"}) %>
 		  </div>
+		  <label>Girls or Guys?</label>
+		  <div class="radio">
+			  <label><%= f.radio_button(:gender, "female") %> Female</label>
+		  </div>
+		  <div class="radio">
+		  	<label><%= f.radio_button(:gender, "male") %> Male</label>
+		  </div>
+
 		  
 		  <div class="form-group">
 			  <%= f.label :formation %><br />
@@ -68,17 +74,25 @@
 		  <div><%= f.button "Start Getting Recruited", {class: "btn btn-success btn-lg btn-block",id: "create-player-account"} %></div>
 		<% end %>
 		<br>
-		<small><%= render "players/shared/links" %></small>
+		<small>
+			<%= render "players/shared/links" %>
+			<small>By signing up, you agree to the <%= link_to "terms", terms_path %> and have read our <%= link_to "privacy policy", terms_path %>.</small>
+		</small>
 	</div>
-	<div class="col-md-offset-1 col-md-6">
-		<h3>"I love just spedning a Sunday morning looking for leads on players I think are good"<br>
-		<small>- James Thunder</small></h3>
+	<div class="col-md-offset-1 col-md-6">		
+		<span id="player-reg-quote">"One of the best ways to see a player play is video. Some coaches want videos showing your best moments, and some want full games."<br></span>
+		- <a target="_blank" href="http://www.usyouthsoccer.org/schellas_hyndmans_dos_and_donts_of_college_recruiting_/">Schellas Hyndman</a>, former head coach Southern Methodist University
+			<br>
+			<div style="margin-top:40px; text-align:center;">
+			  <span id="player-reg-headline">Show off all your best games to your dream schools, without flying all over the country.</span>
+			  <img class="signup-coach-logo" src="https://s3-us-west-2.amazonaws.com/fiftyfourfooty/iron-canary.png">
+		    </div>
 	</div>
 </div>
 <br>
 <br>
 <div class="row">
-	<div class="col-md-2 col-md-offset-5" style="text-align:center;">
-		<img class="splash-logo" src="https://s3-us-west-2.amazonaws.com/fiftyfourfooty/iron-canary-small.png">
+	<div class="col-md-4 col-md-offset-4" style="text-align:center;">
+		<h4><small>54footy created in Northern California</small></h4>
 	</div>
 </div>
