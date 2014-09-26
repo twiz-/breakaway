@@ -22,7 +22,7 @@ class ChargesController < ApplicationController
     subscription.email                    = current_club_player.email
     subscription.stripe_customer_id       = customer.id
     subscription.created_at               = Date.today
-    subscription.stripe_subscription_name = ENV["LIVE_STRIPE_PLAN"]
+    subscription.stripe_subscription_name = ENV["LIVE_ANNUAL_PLAN"]
     subscription.save
     
     rescue Stripe::CardError => e
