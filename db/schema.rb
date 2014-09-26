@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140922194010) do
+ActiveRecord::Schema.define(version: 20140925111409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,6 +124,8 @@ ActiveRecord::Schema.define(version: 20140922194010) do
     t.datetime "updated_at"
   end
 
+  add_index "links", ["club_player_id"], name: "index_links_on_club_player_id", using: :btree
+
   create_table "listings", force: true do |t|
     t.string   "video"
     t.string   "description"
@@ -141,6 +143,8 @@ ActiveRecord::Schema.define(version: 20140922194010) do
     t.integer  "link_id"
   end
 
+  add_index "stats", ["link_id"], name: "index_stats_on_link_id", using: :btree
+
   create_table "subscriptions", force: true do |t|
     t.integer  "club_player_id"
     t.string   "stripe_token"
@@ -150,6 +154,8 @@ ActiveRecord::Schema.define(version: 20140922194010) do
     t.string   "stripe_subscription_name"
     t.datetime "created_at"
   end
+
+  add_index "subscriptions", ["club_player_id"], name: "index_subscriptions_on_club_player_id", using: :btree
 
   create_table "user_friendships", force: true do |t|
     t.integer  "college_coach_id"
