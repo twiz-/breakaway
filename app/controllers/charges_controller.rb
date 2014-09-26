@@ -13,7 +13,7 @@ class ChargesController < ApplicationController
     )
     
     new_customer_subscription = Stripe::Customer.retrieve(customer.id)
-    new_customer_subscription.subscriptions.create(:plan => "a32a5b2ec70410bfe2")
+    new_customer_subscription.subscriptions.create(:plan => ENV["TEST_SUBSCRIPTION_CHARGE_PLAN"])
     
     subscription = Subscription.new
     subscription.club_player_id           = current_club_player.id
