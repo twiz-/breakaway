@@ -5,7 +5,7 @@
 		
 		<div class="row" style="text-align: center;">
 			  <% if profile.listings.size > 0 %> 
-			    <%= image_tag "http://i1.ytimg.com/vi/#{youtube_thumb_embed(profile.listings.last.video)}/mqdefault.jpg", class: "dash-thumb" %>
+			    <%= image_tag "https://i1.ytimg.com/vi/#{youtube_thumb_embed(profile.listings.last.video)}/mqdefault.jpg", class: "dash-thumb" %>
 			  <% else %>
 			     <h5><small>They have removed all their videos :(</small></h5>
 			  <% end %>

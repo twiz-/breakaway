@@ -2,7 +2,7 @@
 	<% @listings.each do |listing| %>
 		<div class="col-md-3 col-sm-5 col-xs-5 tab-element">
 		    <div>
-				<%= image_tag "http://i1.ytimg.com/vi/#{youtube_thumb_embed(listing.video)}/mqdefault.jpg", class: " image-size-prof" %>
+				<%= image_tag "https://i1.ytimg.com/vi/#{youtube_thumb_embed(listing.video)}/mqdefault.jpg", class: " image-size-prof" %>
 				<h4>				   				
 				  <%= link_to "view this game", listing.video, { class: "video-link fancybox-media-diff"} %>
 			    </h4>
