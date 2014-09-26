@@ -12,8 +12,10 @@
 			<% else %>
 			  <li><%= link_to "Remove from watchlist", user_friendship_path(current_college_coach.friendship(@player)), method: :delete, data: { confirm: "Are you certain you want remove #{@player.full_name} from watchlist?" } %></li>
 			<% end %>
-		<% else %>	
-			<a id="favorite-link" data-toggle="modal" data-target=".signup-modal-sm" class="btn btn-info" style="color:#fcfcfc;">add as favorite</a>
+		<% else %>
+		  <% unless current_club_player %>
+		  	<a id="favorite-link" data-toggle="modal" data-target=".signup-modal-sm" class="btn btn-info" style="color:#fcfcfc;">add as favorite</a>
+		  <% end %> 	
 		<% end %>
    		      
    	 </ul>

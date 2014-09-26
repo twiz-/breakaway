@@ -36,10 +36,11 @@
 		    <%= link_to "add favorite".html_safe + " " + content_tag(:i, nil, id: "heart", :class=>"fa fa-heart-o"), "#confirm-dialog", id: "profile-link",class: "btn btn-link modal-toggle", "data-toggle" => "modal", "data-modal-type" => "confirm", "data-player" => profile.full_name, "data-url" => user_friendships_path(friend_id: profile.id, format: :js) %>
 
 		  <% else %>
-		  <hr>
-		   <a id="profile-link" href="<%= profile_path(profile.profile_name)%>">view profile <i id="profile" class="fa fa-user"></i></a>
-		<a id="favorite-link" data-toggle="modal" data-target=".signup-modal-sm" class="btn btn-link">add favorite <i id="heart" class="fa fa-heart-o"></i>
-</a>
+		    <hr>
+		    <a id="profile-link" href="<%= profile_path(profile.profile_name)%>">view profile <i id="profile" class="fa fa-user"></i></a>
+		    <% unless current_club_player %>
+		       <a id="favorite-link" data-toggle="modal" data-target=".signup-modal-sm" class="btn btn-link">add favorite <i id="heart" class="fa fa-heart-o"></i> </a>  
+        <% end %>
 		  <% end %> 
 	     </div>
      </div>

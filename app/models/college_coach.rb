@@ -11,7 +11,6 @@ class CollegeCoach < ActiveRecord::Base
        
   has_many :user_friendships
   has_many :friends, through: :user_friendships #, class_name: 'ClubPlayer'
-  #has_many :favourite_games, class_name: 'Game',  through: :friends, source: :friends
   
   def friend_already?(player)
     !friendship(player).blank?
@@ -22,8 +21,8 @@ class CollegeCoach < ActiveRecord::Base
   end
   
   def future_favorite_games
-    #self.favorite_games.where("scheduled_date > ?", DateTime.now).order(scheduled_date: :asc)
-    Game.find_by_sql("SELECT * FROM games INNER JOIN user_friendships ON games.club_player_id = user_friendships.friend_id WHERE user_friendships.college_coach_id = #{self.id} AND games.scheduled_date > '#{Date.today.advance(days: -1)}' ORDER BY games.scheduled_date ASC")
+    query = ["SELECT * FROM games INNER JOIN user_friendships ON games.club_player_id = user_friendships.friend_id WHERE user_friendships.college_coach_id = ? AND games.scheduled_date > ? ORDER BY games.scheduled_date ASC", self.id, Date.today.advance(days: -1) ]
+    Game.find_by_sql(query)
   end
   
   def full_name
