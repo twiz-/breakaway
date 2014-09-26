@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  before_filter :check_domain
   protect_from_forgery with: :exception
   \
   
@@ -9,6 +10,12 @@ class ApplicationController < ActionController::Base
   # end
   def after_sign_in_path_for(user)
     dashboard_path
+  end
+  
+  def check_domain
+    if Rails.env.production? and request.host.downcase != '54footy.com'
+        redirect_to request.protocol + '54footy.com' + request.fullpath, :status => 301
+      end
   end
   
   protected
