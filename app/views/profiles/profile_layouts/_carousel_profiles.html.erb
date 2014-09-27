@@ -23,7 +23,7 @@
 		   <span class="explainer-text">just one video..</span>
 		  <% end %>  
 		 <ul>
-			<li><%= profile.position %> for <%= profile.club_team %></li>
+			<li><%= truncate(profile.position + " for " + profile.club_team, length: 30) %> </li>
 			<li><%= profile.grad_year %> graduate</li>
 		    <li><%= profile.formation %></li>
 		    <li><%= profile.full_name %></li>

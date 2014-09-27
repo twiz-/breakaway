@@ -24,14 +24,8 @@
 		  </div>
 		  
 		  <label>Position you're best at</label>
-		  <div class="radio">
-		  	<label>Striker<%= f.radio_button(:position, "Striker") %> </label>
-		  </div>
-		  <div class="radio">
-		  	<label>Midefielder<%= f.radio_button(:position, "Midfielder") %> </label>
-		  </div>
-		  <div class="radio">
-		  	<label>Defender<%= f.radio_button(:position, "Defender") %> </label>
+		  <div class="form-group">
+			<%= f.select(:position, [["Striker"],["Center Midfielder"],["Outside Midfielder"], ["Center Defender"],["Outside Defender"]],{},class: "form-control") %>
 		  </div>
 		  <div class="form-group">
 			  <%= f.label :profile_name %>
