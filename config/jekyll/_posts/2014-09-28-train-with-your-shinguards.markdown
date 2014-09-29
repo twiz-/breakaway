@@ -1,6 +1,6 @@
 ---
 layout: post
-published: true
+published: false
 title: train-with-your-shinguards
 date: 2014-08-28
 ---
