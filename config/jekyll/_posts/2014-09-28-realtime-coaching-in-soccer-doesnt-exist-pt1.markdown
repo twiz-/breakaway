@@ -1,7 +1,7 @@
 ---
 layout: post
-published: false
-title: realtime-coaching-in-soccer-doesnt-exist-pt1
+published: true
+title: realtime coaching in soccer doesnt exist pt1
 date: 2014-09-01
 ---
 Adidas miCoach Soccer Elite Real-Time Smart System came out some time ago and was used at last year's MLS all-star game. Basically, players wear chips that measure time, avg speed, max speed, distance, high-intensity distance, and number of sprints. This is then streamed to the coaches, on the sideline in real-time.
