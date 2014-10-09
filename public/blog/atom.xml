@@ -4,12 +4,24 @@
  <title>BLOG_NAME</title>
  <link href="YOUR_URL/atom.xml" rel="self"/>
  <link href="YOUR_URL"/>
- <updated>2014-09-30T12:21:31-07:00</updated>
+ <updated>2014-10-09T14:05:03-07:00</updated>
  <id>BLOG_URL</id>
  <author>
    <name>BLOG_NAME</name>
  </author>
 
+ 
+ <entry>
+   <title>heskey-and-liverpool</title>
+   <link href="YOUR_URL/heskey-and-liverpool.html"/>
+   <updated>2014-10-09T00:00:00-07:00</updated>
+   <id>BLOG_URL/heskey-and-liverpool</id>
+   <content type="html">&lt;p&gt;Some classy football jokes told by a professional comedian.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/IzlO7jFJ514&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>why is us womens soccer better than us mens respectively worldwide?</title>
