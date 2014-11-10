@@ -12,11 +12,11 @@ class ApplicationController < ActionController::Base
     dashboard_path
   end
   
-  def check_domain
-    if Rails.env.production? and request.host.downcase != '54footy.com'
-        redirect_to request.protocol + '54footy.com' + request.fullpath, :status => 301
-      end
-  end
+  # def check_domain
+  #   if Rails.env.production? and request.host.downcase != '54footy.com'
+  #       redirect_to request.protocol + '54footy.com' + request.fullpath, :status => 301
+  #     end
+  # end
   
   protected
   def devise_parameter_sanitizer
